@@ -1,0 +1,62 @@
+[
+  {
+    "test": "pixel_equal_copy",
+    "passed": true
+  },
+  {
+    "test": "pixel_shape_in_hash",
+    "passed": true
+  },
+  {
+    "test": "hamming_64",
+    "passed": true
+  },
+  {
+    "test": "transitive_group",
+    "passed": true
+  },
+  {
+    "test": "hashes_64_bit_length",
+    "passed": true
+  },
+  {
+    "test": "identical_similarity",
+    "passed": true
+  },
+  {
+    "test": "constant_NCC_is_unknown",
+    "passed": true
+  },
+  {
+    "test": "unknown_not_merged_without_edge",
+    "passed": true
+  },
+  {
+    "test": "vectorized_hash_matches_bruteforce",
+    "passed": true
+  },
+  {
+    "test": "SGKF_repeatable",
+    "passed": true
+  },
+  {
+    "test": "five_test_folds_cover_once",
+    "passed": true
+  },
+  {
+    "test": "rare_only_merged_within_grade",
+    "passed": true
+  },
+  {
+    "test": "max_deviation_percentage_points",
+    "passed": true
+  },
+  {
+    "test": "cp_zero_of_200_upper_approx_1p83pct",
+    "passed": true
+  },
+  {
+    "test": "B_preserves_labels_without_identity_merging",
+    "passed": true
+  }
+]

@@ -1,0 +1,8 @@
+2026-11-03 19:20:30,804 | INFO | Khởi tạo aptos-audit-s0-qD22-n25-n26-3.0.0; chỉ CPU; không huấn luyện mô hình ảnh.
+2026-11-03 19:20:35,636 | INFO | Nguồn: /kaggle/input/competitions/aptos2019-blindness-detection/train.csv; 3662 ID; Grade={0: 1805, 1: 370, 2: 999, 3: 193, 4: 295}
+2026-11-03 19:21:36,538 | INFO | Exact duplicate: {'duplicate_groups': 123, 'images_in_duplicate_groups': 251, 'redundant_copies': 128, 'unique_pixel_images': 3534, 'conflicting_groups': 30, 'conflicting_images': 62}
+2026-11-03 19:34:14,335 | INFO | Sensitivity fold 0: unique-pixel kept 697/717; potential phash4 filtered=77
+2026-11-03 19:34:14,352 | INFO | Sensitivity fold 1: unique-pixel kept 698/717; potential phash4 filtered=79
+2026-11-03 19:34:14,369 | INFO | Sensitivity fold 2: unique-pixel kept 697/717; potential phash4 filtered=79
+2026-11-03 19:34:14,385 | INFO | Sensitivity fold 3: unique-pixel kept 697/716; potential phash4 filtered=89
+2026-11-03 19:34:14,401 | INFO | Sensitivity fold 4: unique-pixel kept 699/716; potential phash4 filtered=82

@@ -1,0 +1,46 @@
+{
+  "source_n": 3662,
+  "readable_n": 3662,
+  "eligible_n": 3583,
+  "excluded_unique_n": 79,
+  "excluded_unique_by_grade": {
+    "0": 4,
+    "1": 10,
+    "2": 24,
+    "3": 21,
+    "4": 20
+  },
+  "exclusion_reasons_unique_counts": {
+    "A_identity_conflict:exclude_cluster": 19,
+    "exact_conflict:exclude_cluster": 63
+  },
+  "note_exclusion_counts": "One image can have several reasons; reason counts are non-additive.",
+  "exact": {
+    "duplicate_groups": 123,
+    "images_in_duplicate_groups": 251,
+    "redundant_copies": 128,
+    "unique_pixel_images": 3534,
+    "conflicting_groups": 30,
+    "conflicting_images": 62
+  },
+  "pending_pair_reviews": 319305,
+  "pending_B_approvals": 0,
+  "pending_conflict_decisions": 0,
+  "unusable_comparison_ids": [],
+  "unreadable_ids": [],
+  "n_confirmed_A_B_edges": 16,
+  "manual_review_A_pairs": 15,
+  "manual_review_groups": 11,
+  "manual_review_conflict_groups": 8,
+  "status": "ready_for_archive",
+  "version": "S0-v1.0",
+  "bounded_review_completed": true,
+  "legacy_archived": false,
+  "all_automated_checks_passed": true,
+  "patient_level_split": false,
+  "metadata_is_acquisition_proxy": true,
+  "shortcut_eliminated": false,
+  "n_rendered_pairs": 120,
+  "all_candidates_have_scores": true,
+  "risk_not_eliminated": "Residual unknown duplicates and same-eye/patient relations may remain outside candidate retrieval."
+}

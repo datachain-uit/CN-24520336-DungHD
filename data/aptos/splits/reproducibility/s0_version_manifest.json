@@ -1,0 +1,27 @@
+{
+  "version": "S0-v1.0",
+  "status": "ready_for_archive",
+  "splits_json_sha256": "d53328d2a012c6b32d658b89494092b5deaf27b90258191362dc1695394e27ca",
+  "eligible_images": 3583,
+  "reference_eligible_images": 3583,
+  "eligible_grade_counts": {
+    "0": 1801,
+    "1": 360,
+    "2": 975,
+    "3": 172,
+    "4": 275
+  },
+  "reference_grade_counts": {
+    "0": 1801,
+    "1": 360,
+    "2": 975,
+    "3": 172,
+    "4": 275
+  },
+  "dataset_fingerprint": "b9b484560cbaaa981a4d7d621f4f0891d83f3c1fc8a2eadd440af22d9b3f0687",
+  "ranked_pairs_sha256": "d26d310f7b3a32b7e3596561e001362a2d1b4a8ecd01746a22a87e372743ddc4",
+  "bounded_review_summary_sha256": "9b7d29763454cfa607c7d2adb68264ce1caa5ee59c08f6093fa84db5be917aa8",
+  "sensitivity_preregistration_sha256": "37a65ba2a6921d3936b8e59959ad1999adb1ee59a0766391149ffb36d011af1c",
+  "advisor_approval_ref": null,
+  "legacy_archived": false
+}

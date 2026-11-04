@@ -1,0 +1,24 @@
+{
+  "locked_before_MVP": true,
+  "base_split_version": "S0-v1.0",
+  "no_resplitting": true,
+  "unique_pixel": {
+    "scope": "test of each fold",
+    "selection": "lexicographically smallest id_code within identical decoded pixel SHA-256"
+  },
+  "unverified_phash_4": {
+    "scope": "test of each fold",
+    "threshold": "phash_distance <= 4",
+    "candidate_status": "review_status != confirmed",
+    "other_partition": "train only",
+    "action": "exclude affected test images from sensitivity metric computation, NOT from the canonical split"
+  },
+  "metrics": [
+    "QWK",
+    "Macro-F1"
+  ],
+  "comparison": "paired with canonical same-model predictions (do not retrain or tune on test)",
+  "subject_to_later_review": "Unverified near-duplicates beyond retrieval remain a limitation.",
+  "n_masks": 3583,
+  "masks_sha256": "29017d6d9e4d2bb2af5a003e761d312bf17eeeff15ef81061afb9f70650df166"
+}

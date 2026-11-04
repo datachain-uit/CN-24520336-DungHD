@@ -1,0 +1,22 @@
+{
+  "pipeline_version": "aptos-audit-s0-qD22-n25-n26-3.0.0",
+  "dataset_fingerprint": "b9b484560cbaaa981a4d7d621f4f0891d83f3c1fc8a2eadd440af22d9b3f0687",
+  "config_sha256": "8180850ca6ae327f17cd4aefd84bb8b3f4e51883d6abcf55f3de1c9427409f63",
+  "review_files_sha256": {
+    "review_csv": null,
+    "conflict_review_csv": null,
+    "ranked_pairs_csv": null,
+    "bounded_review_log_csv": "05ddb940f0a69a81708bd33857f638fdad625ae016557b36830fc7ac8c3abf63"
+  },
+  "split_assignments_sha256": "12e30f1a2948fe55f02ae6965e9e72623a0f11708af0c6117bc36cb6487d2288",
+  "packages": {
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "Pillow": "13.0.0",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.9.1",
+    "scikit-image": "0.25.2",
+    "matplotlib": "3.10.0",
+    "tqdm": "4.67.3"
+  }
+}

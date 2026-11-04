@@ -1,0 +1,6790 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-13T16:29:30.975923+00:00",
+  "scope": "Chỉ trùng tuyệt đối trên pixel gốc; không xét gần trùng.",
+  "status": "passed_exact_duplicate_protocol",
+  "config": {
+    "dataset": "APTOS 2019 original labeled train",
+    "protocol": "exact_duplicates_only",
+    "near_duplicates_considered": false,
+    "seed": 42,
+    "outer_n_splits": 5,
+    "inner_n_splits": 8,
+    "algorithm": "StratifiedGroupKFold",
+    "shuffle": true,
+    "group": "cluster_id",
+    "stratification": "grade x acquisition_group with deterministic within-grade pooling",
+    "validation_selection": "first inner fold (index 0)",
+    "target_ratios": {
+      "train": 0.7,
+      "val": 0.1,
+      "test": 0.2
+    },
+    "minimum_original_size_count": 30,
+    "minimum_stratum_images": 10,
+    "minimum_stratum_clusters": "number of folds at the current split stage",
+    "rare_pool_rule": "pool rare cells within grade; if insufficient, absorb other first, then smallest adequate cell; ties by name",
+    "conflict_policy": "exclude_whole_cluster_from_all_subsets",
+    "same_label_duplicates": "retain_all_members_in_same_subset",
+    "acquisition_count_basis": "all original labeled images before exclusions",
+    "pixel_hash_format": "SHA256(str((BGR_array.shape, str(BGR_array.dtype))).encode() + contiguous_BGR_bytes)",
+    "sklearn_version": "1.8.0"
+  },
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.8.0",
+    "Pillow": "12.3.0"
+  },
+  "source": {
+    "train_csv": "/kaggle/input/competitions/aptos2019-blindness-detection/train.csv",
+    "image_dir": "/kaggle/input/competitions/aptos2019-blindness-detection/train_images",
+    "train_csv_sha256": "b2a3479695922e62c83c94a1a9ef669b4b6d68cc26a1d7090ebedecdd7dd79a5",
+    "dataset_fingerprint_sha256": "d6e01c79020d81ff791ca9a129cd6568d3b65ce53774d721eac82e31614820ff"
+  },
+  "original": {
+    "n_images": 3662,
+    "n_clusters": 3534,
+    "grade_counts": {
+      "0": 1805,
+      "1": 370,
+      "2": 999,
+      "3": 193,
+      "4": 295
+    },
+    "acquisition_counts": {
+      "1050x1050": 974,
+      "1504x1000": 92,
+      "1844x1226": 61,
+      "2048x1536": 351,
+      "2416x1736": 638,
+      "2588x1958": 533,
+      "2896x1944": 34,
+      "3216x2136": 410,
+      "3388x2588": 141,
+      "4288x2848": 52,
+      "640x480": 42,
+      "819x614": 287,
+      "other": 47
+    },
+    "grade_acquisition_counts": {
+      "0": {
+        "1050x1050": 901,
+        "1504x1000": 0,
+        "1844x1226": 0,
+        "2048x1536": 351,
+        "2416x1736": 31,
+        "2588x1958": 231,
+        "2896x1944": 0,
+        "3216x2136": 2,
+        "3388x2588": 0,
+        "4288x2848": 0,
+        "640x480": 0,
+        "819x614": 279,
+        "other": 10
+      },
+      "1": {
+        "1050x1050": 19,
+        "1504x1000": 2,
+        "1844x1226": 13,
+        "2048x1536": 0,
+        "2416x1736": 234,
+        "2588x1958": 44,
+        "2896x1944": 6,
+        "3216x2136": 13,
+        "3388x2588": 13,
+        "4288x2848": 18,
+        "640x480": 0,
+        "819x614": 7,
+        "other": 1
+      },
+      "2": {
+        "1050x1050": 39,
+        "1504x1000": 63,
+        "1844x1226": 28,
+        "2048x1536": 0,
+        "2416x1736": 233,
+        "2588x1958": 165,
+        "2896x1944": 3,
+        "3216x2136": 307,
+        "3388x2588": 91,
+        "4288x2848": 11,
+        "640x480": 33,
+        "819x614": 1,
+        "other": 25
+      },
+      "3": {
+        "1050x1050": 2,
+        "1504x1000": 9,
+        "1844x1226": 1,
+        "2048x1536": 0,
+        "2416x1736": 60,
+        "2588x1958": 47,
+        "2896x1944": 21,
+        "3216x2136": 32,
+        "3388x2588": 6,
+        "4288x2848": 4,
+        "640x480": 5,
+        "819x614": 0,
+        "other": 6
+      },
+      "4": {
+        "1050x1050": 13,
+        "1504x1000": 18,
+        "1844x1226": 19,
+        "2048x1536": 0,
+        "2416x1736": 80,
+        "2588x1958": 46,
+        "2896x1944": 4,
+        "3216x2136": 56,
+        "3388x2588": 31,
+        "4288x2848": 19,
+        "640x480": 4,
+        "819x614": 0,
+        "other": 5
+      }
+    },
+    "grade_percent": {
+      "0": 49.29,
+      "1": 10.1038,
+      "2": 27.2802,
+      "3": 5.2703,
+      "4": 8.0557
+    },
+    "acquisition_percent": {
+      "1050x1050": 26.5975,
+      "1504x1000": 2.5123,
+      "1844x1226": 1.6658,
+      "2048x1536": 9.5849,
+      "2416x1736": 17.4222,
+      "2588x1958": 14.5549,
+      "2896x1944": 0.9285,
+      "3216x2136": 11.1961,
+      "3388x2588": 3.8504,
+      "4288x2848": 1.42,
+      "640x480": 1.1469,
+      "819x614": 7.8372,
+      "other": 1.2835
+    }
+  },
+  "eligible": {
+    "n_images": 3600,
+    "n_clusters": 3504,
+    "grade_counts": {
+      "0": 1801,
+      "1": 360,
+      "2": 976,
+      "3": 180,
+      "4": 283
+    },
+    "acquisition_counts": {
+      "1050x1050": 974,
+      "1504x1000": 70,
+      "1844x1226": 61,
+      "2048x1536": 351,
+      "2416x1736": 616,
+      "2588x1958": 533,
+      "2896x1944": 30,
+      "3216x2136": 396,
+      "3388x2588": 141,
+      "4288x2848": 52,
+      "640x480": 42,
+      "819x614": 287,
+      "other": 47
+    },
+    "grade_acquisition_counts": {
+      "0": {
+        "1050x1050": 901,
+        "1504x1000": 0,
+        "1844x1226": 0,
+        "2048x1536": 351,
+        "2416x1736": 27,
+        "2588x1958": 231,
+        "2896x1944": 0,
+        "3216x2136": 2,
+        "3388x2588": 0,
+        "4288x2848": 0,
+        "640x480": 0,
+        "819x614": 279,
+        "other": 10
+      },
+      "1": {
+        "1050x1050": 19,
+        "1504x1000": 2,
+        "1844x1226": 13,
+        "2048x1536": 0,
+        "2416x1736": 225,
+        "2588x1958": 44,
+        "2896x1944": 6,
+        "3216x2136": 12,
+        "3388x2588": 13,
+        "4288x2848": 18,
+        "640x480": 0,
+        "819x614": 7,
+        "other": 1
+      },
+      "2": {
+        "1050x1050": 39,
+        "1504x1000": 54,
+        "1844x1226": 28,
+        "2048x1536": 0,
+        "2416x1736": 227,
+        "2588x1958": 165,
+        "2896x1944": 2,
+        "3216x2136": 300,
+        "3388x2588": 91,
+        "4288x2848": 11,
+        "640x480": 33,
+        "819x614": 1,
+        "other": 25
+      },
+      "3": {
+        "1050x1050": 2,
+        "1504x1000": 2,
+        "1844x1226": 1,
+        "2048x1536": 0,
+        "2416x1736": 58,
+        "2588x1958": 47,
+        "2896x1944": 19,
+        "3216x2136": 30,
+        "3388x2588": 6,
+        "4288x2848": 4,
+        "640x480": 5,
+        "819x614": 0,
+        "other": 6
+      },
+      "4": {
+        "1050x1050": 13,
+        "1504x1000": 12,
+        "1844x1226": 19,
+        "2048x1536": 0,
+        "2416x1736": 79,
+        "2588x1958": 46,
+        "2896x1944": 3,
+        "3216x2136": 52,
+        "3388x2588": 31,
+        "4288x2848": 19,
+        "640x480": 4,
+        "819x614": 0,
+        "other": 5
+      }
+    },
+    "grade_percent": {
+      "0": 50.0278,
+      "1": 10.0,
+      "2": 27.1111,
+      "3": 5.0,
+      "4": 7.8611
+    },
+    "acquisition_percent": {
+      "1050x1050": 27.0556,
+      "1504x1000": 1.9444,
+      "1844x1226": 1.6944,
+      "2048x1536": 9.75,
+      "2416x1736": 17.1111,
+      "2588x1958": 14.8056,
+      "2896x1944": 0.8333,
+      "3216x2136": 11.0,
+      "3388x2588": 3.9167,
+      "4288x2848": 1.4444,
+      "640x480": 1.1667,
+      "819x614": 7.9722,
+      "other": 1.3056
+    }
+  },
+  "exact_duplicates": {
+    "n_distinct_pixel_contents": 3534,
+    "n_duplicate_clusters": 123,
+    "n_images_in_duplicate_clusters": 251,
+    "n_redundant_copies_if_keep_one": 128,
+    "note": "Không xóa các bản trùng cùng nhãn; số bản dư chỉ là thống kê."
+  },
+  "conflicts": {
+    "n_clusters": 30,
+    "n_images_excluded": 62,
+    "excluded_by_grade": {
+      "0": 4,
+      "1": 10,
+      "2": 23,
+      "3": 13,
+      "4": 12
+    },
+    "decisions": [
+      {
+        "cluster_id": "sha256_0825854ad60573413c5023e88bf0b849171591534bedf5735671b6a0bc74a8e4",
+        "n_images": 2,
+        "id_codes": "42985aa2e32f;6165081b9021",
+        "observed_grades": "0;1",
+        "grade_0_count": 1,
+        "grade_1_count": 1,
+        "grade_2_count": 0,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_08f296ff03760d8fa3074e4f5fbd9494bafe8bd5a844ed19be1d0c60686d634f",
+        "n_images": 2,
+        "id_codes": "3cd801ffdbf0;7525ebb3434d",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_0a2015e289a5ea75778d5f5bb4653eeb253577dd5fb6657b8284badf00ae63b4",
+        "n_images": 3,
+        "id_codes": "4fecf87184e6;9bf060db8376;f7edc074f06b",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 2,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_0e9c557396c2004c4357099a23e5500415a6b3120aa7d5ab09fac31a7453afd9",
+        "n_images": 2,
+        "id_codes": "46cdc8b685bd;e4151feb8443",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_15a7cb3185856741ac75905cd6848754df3e00d5e2637aedfc9940a9fe6c8050",
+        "n_images": 2,
+        "id_codes": "bacfb1029f6b;e12d41e7b221",
+        "observed_grades": "1;2",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_15cd15d24330e5ea0dcd96004a42445ad098342d9b3b4f42e8654c732aabcb06",
+        "n_images": 2,
+        "id_codes": "14e3f84445f7;f0f89314e860",
+        "observed_grades": "3;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 0,
+        "grade_3_count": 1,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_1ae3de345e49faf3f26b0763db6ec81d2fbaeb5041902c07dac960240a037624",
+        "n_images": 2,
+        "id_codes": "8446826853d0;8ef2eb8c51c4",
+        "observed_grades": "1;2",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_275aeaebe59eb1261d5f56386e4cc74cc1311aeba764cebd4fea9e450f81c2a1",
+        "n_images": 2,
+        "id_codes": "1c9c583c10bf;ea15a290eb96",
+        "observed_grades": "0;1",
+        "grade_0_count": 1,
+        "grade_1_count": 1,
+        "grade_2_count": 0,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_2c34da4e388a9c35e6802fea48f954479a3723fe3b1408ccf51a6b35e4812369",
+        "n_images": 2,
+        "id_codes": "b9127e38d9b9;e39b627cf648",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_35d32f34bd5868138a4fb2b00b2d75e616c97facd057ae0b8e6ed634c0e962f7",
+        "n_images": 3,
+        "id_codes": "42a850acd2ac;51131b48f9d4;8cb6b0efaaac",
+        "observed_grades": "1;2",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 2,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_370672b22253d800f3f2b70e9cacc19472ce6f207046b3e885ade5c28c682de3",
+        "n_images": 2,
+        "id_codes": "60f15dd68d30;fcc6aa6755e6",
+        "observed_grades": "3;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 0,
+        "grade_3_count": 1,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_42dcc6400e10eefc75865c187bcb7ba31e22f3d8993ba82f8c34bb80db86c62e",
+        "n_images": 2,
+        "id_codes": "30cab14951ac;c546670d9684",
+        "observed_grades": "0;1",
+        "grade_0_count": 1,
+        "grade_1_count": 1,
+        "grade_2_count": 0,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_48b6e9369306f46c38c72c69c38b90eb4202c2f0b548598f2a0ad892a436590a",
+        "n_images": 2,
+        "id_codes": "2f7789c1e046;a8e88d4891c4",
+        "observed_grades": "3;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 0,
+        "grade_3_count": 1,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_4a14989191f2514c09acd808d58bc8f3e7ca27bb9ebea91083e4789fca165940",
+        "n_images": 2,
+        "id_codes": "3dbfbc11e105;d0079cc188e9",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_4f6a2afa444513a6828eed06ec575baffcaf4c7e802f1cd87dac11188c3c0e55",
+        "n_images": 2,
+        "id_codes": "5eb311bcb5f9;a9e984b57556",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_525e48deabc69fc3b60b5dea11dde47e60c39bcdea1b34fb900b03319158e857",
+        "n_images": 2,
+        "id_codes": "0ac436400db4;fda39982a810",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_5380de4f40630eba1d591914f7b681d6c0791420076da525ab3f4af25944b850",
+        "n_images": 2,
+        "id_codes": "80964d8e0863;ab50123abadb",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_55e99cfcae89cf20e0edab5eb6d0bf486bb77cc50d6e5f58a5a1e3735901d502",
+        "n_images": 2,
+        "id_codes": "0cb14014117d;4a44cc840ebe",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_5ce5e1e9c34f910d6f52a9816207ac559389c87383d384ab9b7b39b980ced9b9",
+        "n_images": 2,
+        "id_codes": "3ee4841936ef;7005be54cab1",
+        "observed_grades": "1;4",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 0,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_61c12a99e9235f83427e3bc429b35fc831b34e3ee35fa4a677edb9c4fd5846f5",
+        "n_images": 2,
+        "id_codes": "9e3510963315;b187b3c93afb",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_634ea221abcf7d4d32e5efb05f31172d88496829ebbbaf7a70ee56a9a5309083",
+        "n_images": 2,
+        "id_codes": "1632c4311fc9;a75bab2463d4",
+        "observed_grades": "1;2",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_71df3e314486511114c759ce800a89db387f5ec6b767dc4b484039bde4e9dd73",
+        "n_images": 2,
+        "id_codes": "98f7136d2e7a;e740af6ac6ea",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_7d1b42b1b0a1b8eaf8dbddc173471bcb23e684e9b19f2f128942955ee6a71a3c",
+        "n_images": 2,
+        "id_codes": "2df07eb5779f;b91ef82e723a",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_7e5ed3aa62e4bb6f12ffac86f7c6a89624bc6e19fbef1235e0ac074897295f83",
+        "n_images": 2,
+        "id_codes": "278aa860dffd;f066db7a2efe",
+        "observed_grades": "0;1",
+        "grade_0_count": 1,
+        "grade_1_count": 1,
+        "grade_2_count": 0,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_80c2cac097a87616c352c13e04822ed086fd8068baa66bf32e82d07974bb2930",
+        "n_images": 2,
+        "id_codes": "e8d1c6c07cf2;f23902998c21",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_a40cc3a1cd6760cb323ad0b446dbadcd098c74c65b22d81e0b8da8ee94359f9b",
+        "n_images": 2,
+        "id_codes": "1c4d87baaffc;35aa7f5c2ec0",
+        "observed_grades": "1;2",
+        "grade_0_count": 0,
+        "grade_1_count": 1,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_e7191cec1fd558eb91ccf5dbb60b892a18ec03a3fd7c1278e133ff9ac7f5c096",
+        "n_images": 2,
+        "id_codes": "9a3c03a5ad0f;f03d3c4ce7fb",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_ec51b132e4d3c8d8d73863e2ce6bcfc1972ff367838ef6e1e1fd8895e9b52afd",
+        "n_images": 2,
+        "id_codes": "5e7db41b3bee;a1b12fdce6c3",
+        "observed_grades": "2;4",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 0,
+        "grade_4_count": 1,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_ef37469468cd6ddf614b68e6784265a5622010c79b550b3c4bb831258a22c797",
+        "n_images": 2,
+        "id_codes": "521d3e264d71;fe0fc67c7980",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      },
+      {
+        "cluster_id": "sha256_fb6aae9df5350a4c45d09d98825dd94781d190084fc4dcc7064f947efabc5355",
+        "n_images": 2,
+        "id_codes": "6253f23229b1;76cfe8967f7d",
+        "observed_grades": "2;3",
+        "grade_0_count": 0,
+        "grade_1_count": 0,
+        "grade_2_count": 1,
+        "grade_3_count": 1,
+        "grade_4_count": 0,
+        "decision": "exclude_from_train_val_test",
+        "reason": "Cùng pixel nhưng khác nhãn; chưa có nhãn chuyên gia xác nhận."
+      }
+    ]
+  },
+  "original_size_counts": {
+    "1050x1050": 974,
+    "1467x1110": 2,
+    "1476x1117": 14,
+    "1504x1000": 92,
+    "1844x1226": 61,
+    "2048x1536": 351,
+    "2144x1424": 28,
+    "2146x1764": 1,
+    "2416x1736": 638,
+    "2588x1958": 533,
+    "2896x1944": 34,
+    "3216x2136": 410,
+    "3388x2588": 141,
+    "4288x2848": 52,
+    "474x358": 2,
+    "640x480": 42,
+    "819x614": 287
+  },
+  "stratification": {
+    "outer": {
+      "mapping": [
+        {
+          "grade": 0,
+          "acquisition_group": "1050x1050",
+          "stratum": "0|1050x1050",
+          "n_images": 901,
+          "n_clusters": 901,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "2048x1536",
+          "stratum": "0|2048x1536",
+          "n_images": 351,
+          "n_clusters": 351,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "2416x1736",
+          "stratum": "0|2416x1736",
+          "n_images": 27,
+          "n_clusters": 22,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "2588x1958",
+          "stratum": "0|2588x1958",
+          "n_images": 231,
+          "n_clusters": 231,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "3216x2136",
+          "stratum": "0|pooled",
+          "n_images": 2,
+          "n_clusters": 2,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "819x614",
+          "stratum": "0|819x614",
+          "n_images": 279,
+          "n_clusters": 279,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 0,
+          "acquisition_group": "other",
+          "stratum": "0|pooled",
+          "n_images": 10,
+          "n_clusters": 10,
+          "action": "absorbed_to_support_rare"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "1050x1050",
+          "stratum": "1|1050x1050",
+          "n_images": 19,
+          "n_clusters": 19,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "1504x1000",
+          "stratum": "1|pooled",
+          "n_images": 2,
+          "n_clusters": 1,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "1844x1226",
+          "stratum": "1|1844x1226",
+          "n_images": 13,
+          "n_clusters": 13,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "2416x1736",
+          "stratum": "1|2416x1736",
+          "n_images": 225,
+          "n_clusters": 204,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "2588x1958",
+          "stratum": "1|2588x1958",
+          "n_images": 44,
+          "n_clusters": 44,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "2896x1944",
+          "stratum": "1|pooled",
+          "n_images": 6,
+          "n_clusters": 6,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "3216x2136",
+          "stratum": "1|3216x2136",
+          "n_images": 12,
+          "n_clusters": 12,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "3388x2588",
+          "stratum": "1|3388x2588",
+          "n_images": 13,
+          "n_clusters": 13,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "4288x2848",
+          "stratum": "1|4288x2848",
+          "n_images": 18,
+          "n_clusters": 18,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "819x614",
+          "stratum": "1|pooled",
+          "n_images": 7,
+          "n_clusters": 7,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 1,
+          "acquisition_group": "other",
+          "stratum": "1|pooled",
+          "n_images": 1,
+          "n_clusters": 1,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "1050x1050",
+          "stratum": "2|1050x1050",
+          "n_images": 39,
+          "n_clusters": 39,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "1504x1000",
+          "stratum": "2|1504x1000",
+          "n_images": 54,
+          "n_clusters": 30,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "1844x1226",
+          "stratum": "2|1844x1226",
+          "n_images": 28,
+          "n_clusters": 28,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "2416x1736",
+          "stratum": "2|2416x1736",
+          "n_images": 227,
+          "n_clusters": 224,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "2588x1958",
+          "stratum": "2|2588x1958",
+          "n_images": 165,
+          "n_clusters": 165,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "2896x1944",
+          "stratum": "2|pooled",
+          "n_images": 2,
+          "n_clusters": 2,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "3216x2136",
+          "stratum": "2|3216x2136",
+          "n_images": 300,
+          "n_clusters": 282,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "3388x2588",
+          "stratum": "2|3388x2588",
+          "n_images": 91,
+          "n_clusters": 91,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "4288x2848",
+          "stratum": "2|4288x2848",
+          "n_images": 11,
+          "n_clusters": 11,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "640x480",
+          "stratum": "2|640x480",
+          "n_images": 33,
+          "n_clusters": 33,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "819x614",
+          "stratum": "2|pooled",
+          "n_images": 1,
+          "n_clusters": 1,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 2,
+          "acquisition_group": "other",
+          "stratum": "2|pooled",
+          "n_images": 25,
+          "n_clusters": 16,
+          "action": "absorbed_to_support_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "1050x1050",
+          "stratum": "3|pooled",
+          "n_images": 2,
+          "n_clusters": 2,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "1504x1000",
+          "stratum": "3|pooled",
+          "n_images": 2,
+          "n_clusters": 1,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "1844x1226",
+          "stratum": "3|pooled",
+          "n_images": 1,
+          "n_clusters": 1,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "2416x1736",
+          "stratum": "3|2416x1736",
+          "n_images": 58,
+          "n_clusters": 58,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "2588x1958",
+          "stratum": "3|2588x1958",
+          "n_images": 47,
+          "n_clusters": 47,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "2896x1944",
+          "stratum": "3|2896x1944",
+          "n_images": 19,
+          "n_clusters": 19,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "3216x2136",
+          "stratum": "3|3216x2136",
+          "n_images": 30,
+          "n_clusters": 29,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "3388x2588",
+          "stratum": "3|pooled",
+          "n_images": 6,
+          "n_clusters": 6,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "4288x2848",
+          "stratum": "3|pooled",
+          "n_images": 4,
+          "n_clusters": 4,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "640x480",
+          "stratum": "3|pooled",
+          "n_images": 5,
+          "n_clusters": 5,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 3,
+          "acquisition_group": "other",
+          "stratum": "3|pooled",
+          "n_images": 6,
+          "n_clusters": 5,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "1050x1050",
+          "stratum": "4|1050x1050",
+          "n_images": 13,
+          "n_clusters": 11,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "1504x1000",
+          "stratum": "4|1504x1000",
+          "n_images": 12,
+          "n_clusters": 8,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "1844x1226",
+          "stratum": "4|1844x1226",
+          "n_images": 19,
+          "n_clusters": 19,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "2416x1736",
+          "stratum": "4|2416x1736",
+          "n_images": 79,
+          "n_clusters": 77,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "2588x1958",
+          "stratum": "4|2588x1958",
+          "n_images": 46,
+          "n_clusters": 46,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "2896x1944",
+          "stratum": "4|pooled",
+          "n_images": 3,
+          "n_clusters": 3,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "3216x2136",
+          "stratum": "4|3216x2136",
+          "n_images": 52,
+          "n_clusters": 49,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "3388x2588",
+          "stratum": "4|3388x2588",
+          "n_images": 31,
+          "n_clusters": 31,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "4288x2848",
+          "stratum": "4|4288x2848",
+          "n_images": 19,
+          "n_clusters": 19,
+          "action": "kept_separate"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "640x480",
+          "stratum": "4|pooled",
+          "n_images": 4,
+          "n_clusters": 4,
+          "action": "pooled_rare"
+        },
+        {
+          "grade": 4,
+          "acquisition_group": "other",
+          "stratum": "4|pooled",
+          "n_images": 5,
+          "n_clusters": 4,
+          "action": "pooled_rare"
+        }
+      ],
+      "strata_counts": [
+        {
+          "stratum": "0|1050x1050",
+          "n_images": 901,
+          "n_clusters": 901
+        },
+        {
+          "stratum": "0|2048x1536",
+          "n_images": 351,
+          "n_clusters": 351
+        },
+        {
+          "stratum": "0|2416x1736",
+          "n_images": 27,
+          "n_clusters": 22
+        },
+        {
+          "stratum": "0|2588x1958",
+          "n_images": 231,
+          "n_clusters": 231
+        },
+        {
+          "stratum": "0|819x614",
+          "n_images": 279,
+          "n_clusters": 279
+        },
+        {
+          "stratum": "0|pooled",
+          "n_images": 12,
+          "n_clusters": 12
+        },
+        {
+          "stratum": "1|1050x1050",
+          "n_images": 19,
+          "n_clusters": 19
+        },
+        {
+          "stratum": "1|1844x1226",
+          "n_images": 13,
+          "n_clusters": 13
+        },
+        {
+          "stratum": "1|2416x1736",
+          "n_images": 225,
+          "n_clusters": 204
+        },
+        {
+          "stratum": "1|2588x1958",
+          "n_images": 44,
+          "n_clusters": 44
+        },
+        {
+          "stratum": "1|3216x2136",
+          "n_images": 12,
+          "n_clusters": 12
+        },
+        {
+          "stratum": "1|3388x2588",
+          "n_images": 13,
+          "n_clusters": 13
+        },
+        {
+          "stratum": "1|4288x2848",
+          "n_images": 18,
+          "n_clusters": 18
+        },
+        {
+          "stratum": "1|pooled",
+          "n_images": 16,
+          "n_clusters": 15
+        },
+        {
+          "stratum": "2|1050x1050",
+          "n_images": 39,
+          "n_clusters": 39
+        },
+        {
+          "stratum": "2|1504x1000",
+          "n_images": 54,
+          "n_clusters": 30
+        },
+        {
+          "stratum": "2|1844x1226",
+          "n_images": 28,
+          "n_clusters": 28
+        },
+        {
+          "stratum": "2|2416x1736",
+          "n_images": 227,
+          "n_clusters": 224
+        },
+        {
+          "stratum": "2|2588x1958",
+          "n_images": 165,
+          "n_clusters": 165
+        },
+        {
+          "stratum": "2|3216x2136",
+          "n_images": 300,
+          "n_clusters": 282
+        },
+        {
+          "stratum": "2|3388x2588",
+          "n_images": 91,
+          "n_clusters": 91
+        },
+        {
+          "stratum": "2|4288x2848",
+          "n_images": 11,
+          "n_clusters": 11
+        },
+        {
+          "stratum": "2|640x480",
+          "n_images": 33,
+          "n_clusters": 33
+        },
+        {
+          "stratum": "2|pooled",
+          "n_images": 28,
+          "n_clusters": 19
+        },
+        {
+          "stratum": "3|2416x1736",
+          "n_images": 58,
+          "n_clusters": 58
+        },
+        {
+          "stratum": "3|2588x1958",
+          "n_images": 47,
+          "n_clusters": 47
+        },
+        {
+          "stratum": "3|2896x1944",
+          "n_images": 19,
+          "n_clusters": 19
+        },
+        {
+          "stratum": "3|3216x2136",
+          "n_images": 30,
+          "n_clusters": 29
+        },
+        {
+          "stratum": "3|pooled",
+          "n_images": 26,
+          "n_clusters": 24
+        },
+        {
+          "stratum": "4|1050x1050",
+          "n_images": 13,
+          "n_clusters": 11
+        },
+        {
+          "stratum": "4|1504x1000",
+          "n_images": 12,
+          "n_clusters": 8
+        },
+        {
+          "stratum": "4|1844x1226",
+          "n_images": 19,
+          "n_clusters": 19
+        },
+        {
+          "stratum": "4|2416x1736",
+          "n_images": 79,
+          "n_clusters": 77
+        },
+        {
+          "stratum": "4|2588x1958",
+          "n_images": 46,
+          "n_clusters": 46
+        },
+        {
+          "stratum": "4|3216x2136",
+          "n_images": 52,
+          "n_clusters": 49
+        },
+        {
+          "stratum": "4|3388x2588",
+          "n_images": 31,
+          "n_clusters": 31
+        },
+        {
+          "stratum": "4|4288x2848",
+          "n_images": 19,
+          "n_clusters": 19
+        },
+        {
+          "stratum": "4|pooled",
+          "n_images": 12,
+          "n_clusters": 11
+        }
+      ]
+    },
+    "inner_by_fold": [
+      {
+        "fold": 0,
+        "mapping": [
+          {
+            "grade": 0,
+            "acquisition_group": "1050x1050",
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2048x1536",
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2416x1736",
+            "stratum": "0|2416x1736",
+            "n_images": 21,
+            "n_clusters": 17,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2588x1958",
+            "stratum": "0|2588x1958",
+            "n_images": 184,
+            "n_clusters": 184,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "3216x2136",
+            "stratum": "0|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "819x614",
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "other",
+            "stratum": "0|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1050x1050",
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1844x1226",
+            "stratum": "1|1844x1226",
+            "n_images": 11,
+            "n_clusters": 11,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2416x1736",
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2588x1958",
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2896x1944",
+            "stratum": "1|pooled",
+            "n_images": 6,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3216x2136",
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3388x2588",
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "4288x2848",
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "819x614",
+            "stratum": "1|pooled",
+            "n_images": 6,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "other",
+            "stratum": "1|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1050x1050",
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1504x1000",
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1844x1226",
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2416x1736",
+            "stratum": "2|2416x1736",
+            "n_images": 181,
+            "n_clusters": 179,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2588x1958",
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2896x1944",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3216x2136",
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 225,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3388x2588",
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "4288x2848",
+            "stratum": "2|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "640x480",
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "819x614",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "other",
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 12,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1050x1050",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1504x1000",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1844x1226",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2416x1736",
+            "stratum": "3|2416x1736",
+            "n_images": 47,
+            "n_clusters": 47,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2588x1958",
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2896x1944",
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3216x2136",
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 24,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3388x2588",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "4288x2848",
+            "stratum": "3|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "640x480",
+            "stratum": "3|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "other",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1050x1050",
+            "stratum": "4|1050x1050",
+            "n_images": 11,
+            "n_clusters": 9,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1504x1000",
+            "stratum": "4|pooled",
+            "n_images": 9,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1844x1226",
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2416x1736",
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 62,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2588x1958",
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2896x1944",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3216x2136",
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 39,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3388x2588",
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "4288x2848",
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "640x480",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "other",
+            "stratum": "4|pooled",
+            "n_images": 4,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          }
+        ],
+        "strata_counts": [
+          {
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721
+          },
+          {
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281
+          },
+          {
+            "stratum": "0|2416x1736",
+            "n_images": 21,
+            "n_clusters": 17
+          },
+          {
+            "stratum": "0|2588x1958",
+            "n_images": 184,
+            "n_clusters": 184
+          },
+          {
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223
+          },
+          {
+            "stratum": "0|pooled",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|1844x1226",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163
+          },
+          {
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35
+          },
+          {
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14
+          },
+          {
+            "stratum": "1|pooled",
+            "n_images": 13,
+            "n_clusters": 13
+          },
+          {
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31
+          },
+          {
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24
+          },
+          {
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22
+          },
+          {
+            "stratum": "2|2416x1736",
+            "n_images": 181,
+            "n_clusters": 179
+          },
+          {
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132
+          },
+          {
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 225
+          },
+          {
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73
+          },
+          {
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26
+          },
+          {
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 12
+          },
+          {
+            "stratum": "2|pooled",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "3|2416x1736",
+            "n_images": 47,
+            "n_clusters": 47
+          },
+          {
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38
+          },
+          {
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 24
+          },
+          {
+            "stratum": "3|pooled",
+            "n_images": 21,
+            "n_clusters": 19
+          },
+          {
+            "stratum": "4|1050x1050",
+            "n_images": 11,
+            "n_clusters": 9
+          },
+          {
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 62
+          },
+          {
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 39
+          },
+          {
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25
+          },
+          {
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|pooled",
+            "n_images": 19,
+            "n_clusters": 15
+          }
+        ]
+      },
+      {
+        "fold": 1,
+        "mapping": [
+          {
+            "grade": 0,
+            "acquisition_group": "1050x1050",
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2048x1536",
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2416x1736",
+            "stratum": "0|pooled",
+            "n_images": 22,
+            "n_clusters": 18,
+            "action": "absorbed_to_support_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2588x1958",
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "3216x2136",
+            "stratum": "0|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "819x614",
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "other",
+            "stratum": "0|pooled",
+            "n_images": 7,
+            "n_clusters": 7,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1050x1050",
+            "stratum": "1|1050x1050",
+            "n_images": 16,
+            "n_clusters": 16,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1504x1000",
+            "stratum": "1|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1844x1226",
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2416x1736",
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2588x1958",
+            "stratum": "1|2588x1958",
+            "n_images": 36,
+            "n_clusters": 36,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2896x1944",
+            "stratum": "1|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3216x2136",
+            "stratum": "1|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3388x2588",
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "4288x2848",
+            "stratum": "1|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "819x614",
+            "stratum": "1|pooled",
+            "n_images": 6,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "other",
+            "stratum": "1|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1050x1050",
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1504x1000",
+            "stratum": "2|1504x1000",
+            "n_images": 44,
+            "n_clusters": 25,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1844x1226",
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2416x1736",
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 179,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2588x1958",
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2896x1944",
+            "stratum": "2|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3216x2136",
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3388x2588",
+            "stratum": "2|3388x2588",
+            "n_images": 72,
+            "n_clusters": 72,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "4288x2848",
+            "stratum": "2|pooled",
+            "n_images": 8,
+            "n_clusters": 8,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "640x480",
+            "stratum": "2|640x480",
+            "n_images": 27,
+            "n_clusters": 27,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "819x614",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "other",
+            "stratum": "2|other",
+            "n_images": 19,
+            "n_clusters": 12,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1050x1050",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1504x1000",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1844x1226",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2416x1736",
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2588x1958",
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2896x1944",
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3216x2136",
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3388x2588",
+            "stratum": "3|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "4288x2848",
+            "stratum": "3|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "640x480",
+            "stratum": "3|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "other",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1050x1050",
+            "stratum": "4|1050x1050",
+            "n_images": 11,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1504x1000",
+            "stratum": "4|pooled",
+            "n_images": 10,
+            "n_clusters": 7,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1844x1226",
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2416x1736",
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 61,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2588x1958",
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2896x1944",
+            "stratum": "4|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3216x2136",
+            "stratum": "4|3216x2136",
+            "n_images": 41,
+            "n_clusters": 39,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3388x2588",
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "4288x2848",
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "640x480",
+            "stratum": "4|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "other",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          }
+        ],
+        "strata_counts": [
+          {
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721
+          },
+          {
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281
+          },
+          {
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185
+          },
+          {
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223
+          },
+          {
+            "stratum": "0|pooled",
+            "n_images": 31,
+            "n_clusters": 27
+          },
+          {
+            "stratum": "1|1050x1050",
+            "n_images": 16,
+            "n_clusters": 16
+          },
+          {
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163
+          },
+          {
+            "stratum": "1|2588x1958",
+            "n_images": 36,
+            "n_clusters": 36
+          },
+          {
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|pooled",
+            "n_images": 22,
+            "n_clusters": 21
+          },
+          {
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31
+          },
+          {
+            "stratum": "2|1504x1000",
+            "n_images": 44,
+            "n_clusters": 25
+          },
+          {
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22
+          },
+          {
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 179
+          },
+          {
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132
+          },
+          {
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226
+          },
+          {
+            "stratum": "2|3388x2588",
+            "n_images": 72,
+            "n_clusters": 72
+          },
+          {
+            "stratum": "2|640x480",
+            "n_images": 27,
+            "n_clusters": 27
+          },
+          {
+            "stratum": "2|other",
+            "n_images": 19,
+            "n_clusters": 12
+          },
+          {
+            "stratum": "2|pooled",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46
+          },
+          {
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38
+          },
+          {
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "3|pooled",
+            "n_images": 21,
+            "n_clusters": 19
+          },
+          {
+            "stratum": "4|1050x1050",
+            "n_images": 11,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 61
+          },
+          {
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "4|3216x2136",
+            "n_images": 41,
+            "n_clusters": 39
+          },
+          {
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25
+          },
+          {
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|pooled",
+            "n_images": 19,
+            "n_clusters": 15
+          }
+        ]
+      },
+      {
+        "fold": 2,
+        "mapping": [
+          {
+            "grade": 0,
+            "acquisition_group": "1050x1050",
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2048x1536",
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2416x1736",
+            "stratum": "0|pooled",
+            "n_images": 22,
+            "n_clusters": 18,
+            "action": "absorbed_to_support_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2588x1958",
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "3216x2136",
+            "stratum": "0|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "819x614",
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "other",
+            "stratum": "0|pooled",
+            "n_images": 7,
+            "n_clusters": 7,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1050x1050",
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1504x1000",
+            "stratum": "1|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1844x1226",
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2416x1736",
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2588x1958",
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2896x1944",
+            "stratum": "1|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3216x2136",
+            "stratum": "1|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3388x2588",
+            "stratum": "1|3388x2588",
+            "n_images": 11,
+            "n_clusters": 11,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "4288x2848",
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "819x614",
+            "stratum": "1|pooled",
+            "n_images": 6,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1050x1050",
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1504x1000",
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1844x1226",
+            "stratum": "2|1844x1226",
+            "n_images": 23,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2416x1736",
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 180,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2588x1958",
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2896x1944",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3216x2136",
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3388x2588",
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "4288x2848",
+            "stratum": "2|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "640x480",
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "819x614",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "other",
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 13,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1050x1050",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1504x1000",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1844x1226",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2416x1736",
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2588x1958",
+            "stratum": "3|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2896x1944",
+            "stratum": "3|2896x1944",
+            "n_images": 16,
+            "n_clusters": 16,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3216x2136",
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3388x2588",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "4288x2848",
+            "stratum": "3|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "640x480",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "other",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1050x1050",
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 8,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1504x1000",
+            "stratum": "4|pooled",
+            "n_images": 9,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1844x1226",
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2416x1736",
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 62,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2588x1958",
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2896x1944",
+            "stratum": "4|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3216x2136",
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 39,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3388x2588",
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "4288x2848",
+            "stratum": "4|4288x2848",
+            "n_images": 16,
+            "n_clusters": 16,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "640x480",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "other",
+            "stratum": "4|pooled",
+            "n_images": 5,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          }
+        ],
+        "strata_counts": [
+          {
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721
+          },
+          {
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281
+          },
+          {
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185
+          },
+          {
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223
+          },
+          {
+            "stratum": "0|pooled",
+            "n_images": 31,
+            "n_clusters": 27
+          },
+          {
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163
+          },
+          {
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35
+          },
+          {
+            "stratum": "1|3388x2588",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14
+          },
+          {
+            "stratum": "1|pooled",
+            "n_images": 22,
+            "n_clusters": 21
+          },
+          {
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31
+          },
+          {
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24
+          },
+          {
+            "stratum": "2|1844x1226",
+            "n_images": 23,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 180
+          },
+          {
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132
+          },
+          {
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226
+          },
+          {
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73
+          },
+          {
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26
+          },
+          {
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 13
+          },
+          {
+            "stratum": "2|pooled",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46
+          },
+          {
+            "stratum": "3|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "3|2896x1944",
+            "n_images": 16,
+            "n_clusters": 16
+          },
+          {
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "3|pooled",
+            "n_images": 21,
+            "n_clusters": 19
+          },
+          {
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 8
+          },
+          {
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 62
+          },
+          {
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 39
+          },
+          {
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25
+          },
+          {
+            "stratum": "4|4288x2848",
+            "n_images": 16,
+            "n_clusters": 16
+          },
+          {
+            "stratum": "4|pooled",
+            "n_images": 19,
+            "n_clusters": 15
+          }
+        ]
+      },
+      {
+        "fold": 3,
+        "mapping": [
+          {
+            "grade": 0,
+            "acquisition_group": "1050x1050",
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2048x1536",
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2416x1736",
+            "stratum": "0|2416x1736",
+            "n_images": 21,
+            "n_clusters": 17,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2588x1958",
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "3216x2136",
+            "stratum": "0|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "819x614",
+            "stratum": "0|819x614",
+            "n_images": 224,
+            "n_clusters": 224,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "other",
+            "stratum": "0|pooled",
+            "n_images": 8,
+            "n_clusters": 8,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1050x1050",
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1504x1000",
+            "stratum": "1|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1844x1226",
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2416x1736",
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 164,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2588x1958",
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2896x1944",
+            "stratum": "1|pooled",
+            "n_images": 4,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3216x2136",
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3388x2588",
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "4288x2848",
+            "stratum": "1|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "819x614",
+            "stratum": "1|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "other",
+            "stratum": "1|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1050x1050",
+            "stratum": "2|1050x1050",
+            "n_images": 32,
+            "n_clusters": 32,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1504x1000",
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1844x1226",
+            "stratum": "2|1844x1226",
+            "n_images": 23,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2416x1736",
+            "stratum": "2|2416x1736",
+            "n_images": 181,
+            "n_clusters": 178,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2588x1958",
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2896x1944",
+            "stratum": "2|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3216x2136",
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 225,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3388x2588",
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "4288x2848",
+            "stratum": "2|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "640x480",
+            "stratum": "2|640x480",
+            "n_images": 27,
+            "n_clusters": 27,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "819x614",
+            "stratum": "2|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "other",
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 13,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1050x1050",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2416x1736",
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2588x1958",
+            "stratum": "3|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2896x1944",
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3216x2136",
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3388x2588",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "4288x2848",
+            "stratum": "3|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "640x480",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "other",
+            "stratum": "3|pooled",
+            "n_images": 6,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1050x1050",
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 9,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1504x1000",
+            "stratum": "4|pooled",
+            "n_images": 10,
+            "n_clusters": 7,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1844x1226",
+            "stratum": "4|1844x1226",
+            "n_images": 16,
+            "n_clusters": 16,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2416x1736",
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 61,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2588x1958",
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2896x1944",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3216x2136",
+            "stratum": "4|3216x2136",
+            "n_images": 41,
+            "n_clusters": 39,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3388x2588",
+            "stratum": "4|3388x2588",
+            "n_images": 24,
+            "n_clusters": 24,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "4288x2848",
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "640x480",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "other",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          }
+        ],
+        "strata_counts": [
+          {
+            "stratum": "0|1050x1050",
+            "n_images": 721,
+            "n_clusters": 721
+          },
+          {
+            "stratum": "0|2048x1536",
+            "n_images": 281,
+            "n_clusters": 281
+          },
+          {
+            "stratum": "0|2416x1736",
+            "n_images": 21,
+            "n_clusters": 17
+          },
+          {
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185
+          },
+          {
+            "stratum": "0|819x614",
+            "n_images": 224,
+            "n_clusters": 224
+          },
+          {
+            "stratum": "0|pooled",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|1844x1226",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 164
+          },
+          {
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35
+          },
+          {
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|3388x2588",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|pooled",
+            "n_images": 12,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "2|1050x1050",
+            "n_images": 32,
+            "n_clusters": 32
+          },
+          {
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "2|1844x1226",
+            "n_images": 23,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "2|2416x1736",
+            "n_images": 181,
+            "n_clusters": 178
+          },
+          {
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132
+          },
+          {
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 225
+          },
+          {
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73
+          },
+          {
+            "stratum": "2|640x480",
+            "n_images": 27,
+            "n_clusters": 27
+          },
+          {
+            "stratum": "2|other",
+            "n_images": 20,
+            "n_clusters": 13
+          },
+          {
+            "stratum": "2|pooled",
+            "n_images": 12,
+            "n_clusters": 12
+          },
+          {
+            "stratum": "3|2416x1736",
+            "n_images": 46,
+            "n_clusters": 46
+          },
+          {
+            "stratum": "3|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "3|pooled",
+            "n_images": 21,
+            "n_clusters": 20
+          },
+          {
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 9
+          },
+          {
+            "stratum": "4|1844x1226",
+            "n_images": 16,
+            "n_clusters": 16
+          },
+          {
+            "stratum": "4|2416x1736",
+            "n_images": 63,
+            "n_clusters": 61
+          },
+          {
+            "stratum": "4|2588x1958",
+            "n_images": 37,
+            "n_clusters": 37
+          },
+          {
+            "stratum": "4|3216x2136",
+            "n_images": 41,
+            "n_clusters": 39
+          },
+          {
+            "stratum": "4|3388x2588",
+            "n_images": 24,
+            "n_clusters": 24
+          },
+          {
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|pooled",
+            "n_images": 19,
+            "n_clusters": 16
+          }
+        ]
+      },
+      {
+        "fold": 4,
+        "mapping": [
+          {
+            "grade": 0,
+            "acquisition_group": "1050x1050",
+            "stratum": "0|1050x1050",
+            "n_images": 720,
+            "n_clusters": 720,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2048x1536",
+            "stratum": "0|2048x1536",
+            "n_images": 280,
+            "n_clusters": 280,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2416x1736",
+            "stratum": "0|2416x1736",
+            "n_images": 22,
+            "n_clusters": 18,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "2588x1958",
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "3216x2136",
+            "stratum": "0|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "819x614",
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 0,
+            "acquisition_group": "other",
+            "stratum": "0|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1050x1050",
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1504x1000",
+            "stratum": "1|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "1844x1226",
+            "stratum": "1|1844x1226",
+            "n_images": 11,
+            "n_clusters": 11,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2416x1736",
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2588x1958",
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "2896x1944",
+            "stratum": "1|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3216x2136",
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "3388x2588",
+            "stratum": "1|3388x2588",
+            "n_images": 11,
+            "n_clusters": 11,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "4288x2848",
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "819x614",
+            "stratum": "1|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 1,
+            "acquisition_group": "other",
+            "stratum": "1|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1050x1050",
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1504x1000",
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "1844x1226",
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2416x1736",
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 180,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2588x1958",
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "2896x1944",
+            "stratum": "2|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3216x2136",
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "3388x2588",
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "4288x2848",
+            "stratum": "2|pooled",
+            "n_images": 9,
+            "n_clusters": 9,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "640x480",
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 2,
+            "acquisition_group": "other",
+            "stratum": "2|other",
+            "n_images": 21,
+            "n_clusters": 14,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1050x1050",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1504x1000",
+            "stratum": "3|pooled",
+            "n_images": 2,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "1844x1226",
+            "stratum": "3|pooled",
+            "n_images": 1,
+            "n_clusters": 1,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2416x1736",
+            "stratum": "3|2416x1736",
+            "n_images": 47,
+            "n_clusters": 47,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2588x1958",
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "2896x1944",
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3216x2136",
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "3388x2588",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "4288x2848",
+            "stratum": "3|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "640x480",
+            "stratum": "3|pooled",
+            "n_images": 5,
+            "n_clusters": 5,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 3,
+            "acquisition_group": "other",
+            "stratum": "3|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1050x1050",
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 8,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1504x1000",
+            "stratum": "4|pooled",
+            "n_images": 10,
+            "n_clusters": 6,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "1844x1226",
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2416x1736",
+            "stratum": "4|2416x1736",
+            "n_images": 64,
+            "n_clusters": 62,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2588x1958",
+            "stratum": "4|2588x1958",
+            "n_images": 36,
+            "n_clusters": 36,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "2896x1944",
+            "stratum": "4|pooled",
+            "n_images": 2,
+            "n_clusters": 2,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3216x2136",
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 40,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "3388x2588",
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "4288x2848",
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15,
+            "action": "kept_separate"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "640x480",
+            "stratum": "4|pooled",
+            "n_images": 3,
+            "n_clusters": 3,
+            "action": "pooled_rare"
+          },
+          {
+            "grade": 4,
+            "acquisition_group": "other",
+            "stratum": "4|pooled",
+            "n_images": 5,
+            "n_clusters": 4,
+            "action": "pooled_rare"
+          }
+        ],
+        "strata_counts": [
+          {
+            "stratum": "0|1050x1050",
+            "n_images": 720,
+            "n_clusters": 720
+          },
+          {
+            "stratum": "0|2048x1536",
+            "n_images": 280,
+            "n_clusters": 280
+          },
+          {
+            "stratum": "0|2416x1736",
+            "n_images": 22,
+            "n_clusters": 18
+          },
+          {
+            "stratum": "0|2588x1958",
+            "n_images": 185,
+            "n_clusters": 185
+          },
+          {
+            "stratum": "0|819x614",
+            "n_images": 223,
+            "n_clusters": 223
+          },
+          {
+            "stratum": "0|pooled",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|1050x1050",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "1|1844x1226",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "1|2416x1736",
+            "n_images": 180,
+            "n_clusters": 163
+          },
+          {
+            "stratum": "1|2588x1958",
+            "n_images": 35,
+            "n_clusters": 35
+          },
+          {
+            "stratum": "1|3216x2136",
+            "n_images": 10,
+            "n_clusters": 10
+          },
+          {
+            "stratum": "1|3388x2588",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "1|4288x2848",
+            "n_images": 14,
+            "n_clusters": 14
+          },
+          {
+            "stratum": "1|pooled",
+            "n_images": 13,
+            "n_clusters": 12
+          },
+          {
+            "stratum": "2|1050x1050",
+            "n_images": 31,
+            "n_clusters": 31
+          },
+          {
+            "stratum": "2|1504x1000",
+            "n_images": 43,
+            "n_clusters": 24
+          },
+          {
+            "stratum": "2|1844x1226",
+            "n_images": 22,
+            "n_clusters": 22
+          },
+          {
+            "stratum": "2|2416x1736",
+            "n_images": 182,
+            "n_clusters": 180
+          },
+          {
+            "stratum": "2|2588x1958",
+            "n_images": 132,
+            "n_clusters": 132
+          },
+          {
+            "stratum": "2|3216x2136",
+            "n_images": 240,
+            "n_clusters": 226
+          },
+          {
+            "stratum": "2|3388x2588",
+            "n_images": 73,
+            "n_clusters": 73
+          },
+          {
+            "stratum": "2|640x480",
+            "n_images": 26,
+            "n_clusters": 26
+          },
+          {
+            "stratum": "2|other",
+            "n_images": 21,
+            "n_clusters": 14
+          },
+          {
+            "stratum": "2|pooled",
+            "n_images": 11,
+            "n_clusters": 11
+          },
+          {
+            "stratum": "3|2416x1736",
+            "n_images": 47,
+            "n_clusters": 47
+          },
+          {
+            "stratum": "3|2588x1958",
+            "n_images": 38,
+            "n_clusters": 38
+          },
+          {
+            "stratum": "3|2896x1944",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "3|3216x2136",
+            "n_images": 24,
+            "n_clusters": 23
+          },
+          {
+            "stratum": "3|pooled",
+            "n_images": 20,
+            "n_clusters": 19
+          },
+          {
+            "stratum": "4|1050x1050",
+            "n_images": 10,
+            "n_clusters": 8
+          },
+          {
+            "stratum": "4|1844x1226",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|2416x1736",
+            "n_images": 64,
+            "n_clusters": 62
+          },
+          {
+            "stratum": "4|2588x1958",
+            "n_images": 36,
+            "n_clusters": 36
+          },
+          {
+            "stratum": "4|3216x2136",
+            "n_images": 42,
+            "n_clusters": 40
+          },
+          {
+            "stratum": "4|3388x2588",
+            "n_images": 25,
+            "n_clusters": 25
+          },
+          {
+            "stratum": "4|4288x2848",
+            "n_images": 15,
+            "n_clusters": 15
+          },
+          {
+            "stratum": "4|pooled",
+            "n_images": 20,
+            "n_clusters": 15
+          }
+        ]
+      }
+    ]
+  },
+  "fold_overview": [
+    {
+      "fold": 0,
+      "subset": "train",
+      "n_images": 2519,
+      "n_clusters": 2452,
+      "percent_of_eligible": 69.9722
+    },
+    {
+      "fold": 0,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 350,
+      "percent_of_eligible": 10.0
+    },
+    {
+      "fold": 0,
+      "subset": "test",
+      "n_images": 721,
+      "n_clusters": 702,
+      "percent_of_eligible": 20.0278
+    },
+    {
+      "fold": 1,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "percent_of_eligible": 70.0
+    },
+    {
+      "fold": 1,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 349,
+      "percent_of_eligible": 10.0
+    },
+    {
+      "fold": 1,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 701,
+      "percent_of_eligible": 20.0
+    },
+    {
+      "fold": 2,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "percent_of_eligible": 70.0
+    },
+    {
+      "fold": 2,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 349,
+      "percent_of_eligible": 10.0
+    },
+    {
+      "fold": 2,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 701,
+      "percent_of_eligible": 20.0
+    },
+    {
+      "fold": 3,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "percent_of_eligible": 70.0
+    },
+    {
+      "fold": 3,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 350,
+      "percent_of_eligible": 10.0
+    },
+    {
+      "fold": 3,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 700,
+      "percent_of_eligible": 20.0
+    },
+    {
+      "fold": 4,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2453,
+      "percent_of_eligible": 70.0
+    },
+    {
+      "fold": 4,
+      "subset": "val",
+      "n_images": 361,
+      "n_clusters": 351,
+      "percent_of_eligible": 10.0278
+    },
+    {
+      "fold": 4,
+      "subset": "test",
+      "n_images": 719,
+      "n_clusters": 700,
+      "percent_of_eligible": 19.9722
+    }
+  ],
+  "fold_distributions": [
+    {
+      "fold": 0,
+      "subset": "train",
+      "n_images": 2519,
+      "n_clusters": 2452,
+      "grade_counts": {
+        "0": 1261,
+        "1": 251,
+        "2": 681,
+        "3": 127,
+        "4": 199
+      },
+      "acquisition_counts": {
+        "1050x1050": 683,
+        "1504x1000": 46,
+        "1844x1226": 43,
+        "2048x1536": 246,
+        "2416x1736": 430,
+        "2588x1958": 372,
+        "2896x1944": 21,
+        "3216x2136": 277,
+        "3388x2588": 98,
+        "4288x2848": 35,
+        "640x480": 30,
+        "819x614": 202,
+        "other": 36
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 631,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 246,
+          "2416x1736": 19,
+          "2588x1958": 161,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 195,
+          "other": 8
+        },
+        "1": {
+          "1050x1050": 14,
+          "1504x1000": 0,
+          "1844x1226": 10,
+          "2048x1536": 0,
+          "2416x1736": 157,
+          "2588x1958": 30,
+          "2896x1944": 4,
+          "3216x2136": 8,
+          "3388x2588": 8,
+          "4288x2848": 13,
+          "640x480": 0,
+          "819x614": 6,
+          "other": 1
+        },
+        "2": {
+          "1050x1050": 27,
+          "1504x1000": 37,
+          "1844x1226": 19,
+          "2048x1536": 0,
+          "2416x1736": 158,
+          "2588x1958": 116,
+          "2896x1944": 1,
+          "3216x2136": 210,
+          "3388x2588": 64,
+          "4288x2848": 7,
+          "640x480": 23,
+          "819x614": 1,
+          "other": 18
+        },
+        "3": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 41,
+          "2588x1958": 33,
+          "2896x1944": 13,
+          "3216x2136": 21,
+          "3388x2588": 4,
+          "4288x2848": 2,
+          "640x480": 4,
+          "819x614": 0,
+          "other": 5
+        },
+        "4": {
+          "1050x1050": 10,
+          "1504x1000": 7,
+          "1844x1226": 13,
+          "2048x1536": 0,
+          "2416x1736": 55,
+          "2588x1958": 32,
+          "2896x1944": 3,
+          "3216x2136": 37,
+          "3388x2588": 22,
+          "4288x2848": 13,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 4
+        }
+      },
+      "grade_percent": {
+        "0": 50.0595,
+        "1": 9.9643,
+        "2": 27.0345,
+        "3": 5.0417,
+        "4": 7.9
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.1139,
+        "1504x1000": 1.8261,
+        "1844x1226": 1.707,
+        "2048x1536": 9.7658,
+        "2416x1736": 17.0703,
+        "2588x1958": 14.7678,
+        "2896x1944": 0.8337,
+        "3216x2136": 10.9964,
+        "3388x2588": 3.8904,
+        "4288x2848": 1.3894,
+        "640x480": 1.1909,
+        "819x614": 8.0191,
+        "other": 1.4291
+      },
+      "grade_deviation_pp": {
+        "0": 0.0318,
+        "1": -0.0357,
+        "2": -0.0766,
+        "3": 0.0417,
+        "4": 0.0388
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.0584,
+        "1504x1000": -0.1183,
+        "1844x1226": 0.0126,
+        "2048x1536": 0.0158,
+        "2416x1736": -0.0408,
+        "2588x1958": -0.0378,
+        "2896x1944": 0.0003,
+        "3216x2136": -0.0036,
+        "3388x2588": -0.0262,
+        "4288x2848": -0.055,
+        "640x480": 0.0243,
+        "819x614": 0.0468,
+        "other": 0.1236
+      }
+    },
+    {
+      "fold": 0,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 350,
+      "grade_counts": {
+        "0": 179,
+        "1": 37,
+        "2": 98,
+        "3": 18,
+        "4": 28
+      },
+      "acquisition_counts": {
+        "1050x1050": 96,
+        "1504x1000": 8,
+        "1844x1226": 6,
+        "2048x1536": 35,
+        "2416x1736": 62,
+        "2588x1958": 54,
+        "2896x1944": 4,
+        "3216x2136": 40,
+        "3388x2588": 15,
+        "4288x2848": 6,
+        "640x480": 3,
+        "819x614": 28,
+        "other": 3
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 90,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 35,
+          "2416x1736": 2,
+          "2588x1958": 23,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 28,
+          "other": 1
+        },
+        "1": {
+          "1050x1050": 1,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 2,
+          "3388x2588": 2,
+          "4288x2848": 1,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 4,
+          "1504x1000": 6,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 16,
+          "2896x1944": 0,
+          "3216x2136": 30,
+          "3388x2588": 9,
+          "4288x2848": 2,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 2
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 6,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 1,
+          "4288x2848": 1,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        },
+        "4": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 8,
+          "2588x1958": 5,
+          "2896x1944": 0,
+          "3216x2136": 5,
+          "3388x2588": 3,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 49.7222,
+        "1": 10.2778,
+        "2": 27.2222,
+        "3": 5.0,
+        "4": 7.7778
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.6667,
+        "1504x1000": 2.2222,
+        "1844x1226": 1.6667,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.2222,
+        "2588x1958": 15.0,
+        "2896x1944": 1.1111,
+        "3216x2136": 11.1111,
+        "3388x2588": 4.1667,
+        "4288x2848": 1.6667,
+        "640x480": 0.8333,
+        "819x614": 7.7778,
+        "other": 0.8333
+      },
+      "grade_deviation_pp": {
+        "0": -0.3056,
+        "1": 0.2778,
+        "2": 0.1111,
+        "3": 0.0,
+        "4": -0.0833
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.3889,
+        "1504x1000": 0.2778,
+        "1844x1226": -0.0278,
+        "2048x1536": -0.0278,
+        "2416x1736": 0.1111,
+        "2588x1958": 0.1944,
+        "2896x1944": 0.2778,
+        "3216x2136": 0.1111,
+        "3388x2588": 0.25,
+        "4288x2848": 0.2222,
+        "640x480": -0.3333,
+        "819x614": -0.1944,
+        "other": -0.4722
+      }
+    },
+    {
+      "fold": 0,
+      "subset": "test",
+      "n_images": 721,
+      "n_clusters": 702,
+      "grade_counts": {
+        "0": 361,
+        "1": 72,
+        "2": 197,
+        "3": 35,
+        "4": 56
+      },
+      "acquisition_counts": {
+        "1050x1050": 195,
+        "1504x1000": 16,
+        "1844x1226": 12,
+        "2048x1536": 70,
+        "2416x1736": 124,
+        "2588x1958": 107,
+        "2896x1944": 5,
+        "3216x2136": 79,
+        "3388x2588": 28,
+        "4288x2848": 11,
+        "640x480": 9,
+        "819x614": 57,
+        "other": 8
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 180,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 70,
+          "2416x1736": 6,
+          "2588x1958": 47,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 56,
+          "other": 1
+        },
+        "1": {
+          "1050x1050": 4,
+          "1504x1000": 2,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 9,
+          "2896x1944": 0,
+          "3216x2136": 2,
+          "3388x2588": 3,
+          "4288x2848": 4,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 8,
+          "1504x1000": 11,
+          "1844x1226": 6,
+          "2048x1536": 0,
+          "2416x1736": 46,
+          "2588x1958": 33,
+          "2896x1944": 1,
+          "3216x2136": 60,
+          "3388x2588": 18,
+          "4288x2848": 2,
+          "640x480": 7,
+          "819x614": 0,
+          "other": 5
+        },
+        "3": {
+          "1050x1050": 1,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 11,
+          "2588x1958": 9,
+          "2896x1944": 4,
+          "3216x2136": 6,
+          "3388x2588": 1,
+          "4288x2848": 1,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 1
+        },
+        "4": {
+          "1050x1050": 2,
+          "1504x1000": 3,
+          "1844x1226": 4,
+          "2048x1536": 0,
+          "2416x1736": 16,
+          "2588x1958": 9,
+          "2896x1944": 0,
+          "3216x2136": 10,
+          "3388x2588": 6,
+          "4288x2848": 4,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 1
+        }
+      },
+      "grade_percent": {
+        "0": 50.0693,
+        "1": 9.9861,
+        "2": 27.3232,
+        "3": 4.8544,
+        "4": 7.767
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.0458,
+        "1504x1000": 2.2191,
+        "1844x1226": 1.6644,
+        "2048x1536": 9.7087,
+        "2416x1736": 17.1983,
+        "2588x1958": 14.8405,
+        "2896x1944": 0.6935,
+        "3216x2136": 10.957,
+        "3388x2588": 3.8835,
+        "4288x2848": 1.5257,
+        "640x480": 1.2483,
+        "819x614": 7.9057,
+        "other": 1.1096
+      },
+      "grade_deviation_pp": {
+        "0": 0.0416,
+        "1": -0.0139,
+        "2": 0.2121,
+        "3": -0.1456,
+        "4": -0.0941
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.0098,
+        "1504x1000": 0.2747,
+        "1844x1226": -0.0301,
+        "2048x1536": -0.0413,
+        "2416x1736": 0.0872,
+        "2588x1958": 0.0349,
+        "2896x1944": -0.1399,
+        "3216x2136": -0.043,
+        "3388x2588": -0.0332,
+        "4288x2848": 0.0812,
+        "640x480": 0.0816,
+        "819x614": -0.0665,
+        "other": -0.196
+      }
+    },
+    {
+      "fold": 1,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "grade_counts": {
+        "0": 1261,
+        "1": 253,
+        "2": 683,
+        "3": 125,
+        "4": 198
+      },
+      "acquisition_counts": {
+        "1050x1050": 685,
+        "1504x1000": 51,
+        "1844x1226": 43,
+        "2048x1536": 246,
+        "2416x1736": 430,
+        "2588x1958": 374,
+        "2896x1944": 19,
+        "3216x2136": 277,
+        "3388x2588": 98,
+        "4288x2848": 36,
+        "640x480": 31,
+        "819x614": 200,
+        "other": 30
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 631,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 246,
+          "2416x1736": 19,
+          "2588x1958": 162,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 195,
+          "other": 7
+        },
+        "1": {
+          "1050x1050": 14,
+          "1504x1000": 2,
+          "1844x1226": 9,
+          "2048x1536": 0,
+          "2416x1736": 157,
+          "2588x1958": 31,
+          "2896x1944": 4,
+          "3216x2136": 9,
+          "3388x2588": 9,
+          "4288x2848": 13,
+          "640x480": 0,
+          "819x614": 4,
+          "other": 1
+        },
+        "2": {
+          "1050x1050": 28,
+          "1504x1000": 39,
+          "1844x1226": 20,
+          "2048x1536": 0,
+          "2416x1736": 159,
+          "2588x1958": 115,
+          "2896x1944": 1,
+          "3216x2136": 210,
+          "3388x2588": 63,
+          "4288x2848": 7,
+          "640x480": 23,
+          "819x614": 1,
+          "other": 17
+        },
+        "3": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 40,
+          "2588x1958": 33,
+          "2896x1944": 13,
+          "3216x2136": 21,
+          "3388x2588": 4,
+          "4288x2848": 3,
+          "640x480": 4,
+          "819x614": 0,
+          "other": 4
+        },
+        "4": {
+          "1050x1050": 10,
+          "1504x1000": 10,
+          "1844x1226": 13,
+          "2048x1536": 0,
+          "2416x1736": 55,
+          "2588x1958": 33,
+          "2896x1944": 1,
+          "3216x2136": 36,
+          "3388x2588": 22,
+          "4288x2848": 13,
+          "640x480": 4,
+          "819x614": 0,
+          "other": 1
+        }
+      },
+      "grade_percent": {
+        "0": 50.0397,
+        "1": 10.0397,
+        "2": 27.1032,
+        "3": 4.9603,
+        "4": 7.8571
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.1825,
+        "1504x1000": 2.0238,
+        "1844x1226": 1.7063,
+        "2048x1536": 9.7619,
+        "2416x1736": 17.0635,
+        "2588x1958": 14.8413,
+        "2896x1944": 0.754,
+        "3216x2136": 10.9921,
+        "3388x2588": 3.8889,
+        "4288x2848": 1.4286,
+        "640x480": 1.2302,
+        "819x614": 7.9365,
+        "other": 1.1905
+      },
+      "grade_deviation_pp": {
+        "0": 0.0119,
+        "1": 0.0397,
+        "2": -0.0079,
+        "3": -0.0397,
+        "4": -0.004
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.127,
+        "1504x1000": 0.0794,
+        "1844x1226": 0.0119,
+        "2048x1536": 0.0119,
+        "2416x1736": -0.0476,
+        "2588x1958": 0.0357,
+        "2896x1944": -0.0794,
+        "3216x2136": -0.0079,
+        "3388x2588": -0.0278,
+        "4288x2848": -0.0159,
+        "640x480": 0.0635,
+        "819x614": -0.0357,
+        "other": -0.1151
+      }
+    },
+    {
+      "fold": 1,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 349,
+      "grade_counts": {
+        "0": 180,
+        "1": 36,
+        "2": 97,
+        "3": 19,
+        "4": 28
+      },
+      "acquisition_counts": {
+        "1050x1050": 96,
+        "1504x1000": 7,
+        "1844x1226": 5,
+        "2048x1536": 35,
+        "2416x1736": 63,
+        "2588x1958": 54,
+        "2896x1944": 4,
+        "3216x2136": 39,
+        "3388x2588": 13,
+        "4288x2848": 5,
+        "640x480": 4,
+        "819x614": 30,
+        "other": 5
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 90,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 35,
+          "2416x1736": 3,
+          "2588x1958": 23,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 28,
+          "other": 0
+        },
+        "1": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 5,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 1,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 2,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 3,
+          "1504x1000": 5,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 17,
+          "2896x1944": 1,
+          "3216x2136": 30,
+          "3388x2588": 9,
+          "4288x2848": 1,
+          "640x480": 4,
+          "819x614": 0,
+          "other": 2
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 2,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 6,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 1
+        },
+        "4": {
+          "1050x1050": 1,
+          "1504x1000": 0,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 8,
+          "2588x1958": 4,
+          "2896x1944": 1,
+          "3216x2136": 5,
+          "3388x2588": 3,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 2
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 10.0,
+        "2": 26.9444,
+        "3": 5.2778,
+        "4": 7.7778
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.6667,
+        "1504x1000": 1.9444,
+        "1844x1226": 1.3889,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.5,
+        "2588x1958": 15.0,
+        "2896x1944": 1.1111,
+        "3216x2136": 10.8333,
+        "3388x2588": 3.6111,
+        "4288x2848": 1.3889,
+        "640x480": 1.1111,
+        "819x614": 8.3333,
+        "other": 1.3889
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": 0.0,
+        "2": -0.1667,
+        "3": 0.2778,
+        "4": -0.0833
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.3889,
+        "1504x1000": 0.0,
+        "1844x1226": -0.3056,
+        "2048x1536": -0.0278,
+        "2416x1736": 0.3889,
+        "2588x1958": 0.1944,
+        "2896x1944": 0.2778,
+        "3216x2136": -0.1667,
+        "3388x2588": -0.3056,
+        "4288x2848": -0.0556,
+        "640x480": -0.0556,
+        "819x614": 0.3611,
+        "other": 0.0833
+      }
+    },
+    {
+      "fold": 1,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 701,
+      "grade_counts": {
+        "0": 360,
+        "1": 71,
+        "2": 196,
+        "3": 36,
+        "4": 57
+      },
+      "acquisition_counts": {
+        "1050x1050": 193,
+        "1504x1000": 12,
+        "1844x1226": 13,
+        "2048x1536": 70,
+        "2416x1736": 123,
+        "2588x1958": 105,
+        "2896x1944": 7,
+        "3216x2136": 80,
+        "3388x2588": 30,
+        "4288x2848": 11,
+        "640x480": 7,
+        "819x614": 57,
+        "other": 12
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 180,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 70,
+          "2416x1736": 5,
+          "2588x1958": 46,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 56,
+          "other": 3
+        },
+        "1": {
+          "1050x1050": 3,
+          "1504x1000": 0,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 8,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 3,
+          "4288x2848": 3,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 8,
+          "1504x1000": 10,
+          "1844x1226": 6,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 33,
+          "2896x1944": 0,
+          "3216x2136": 60,
+          "3388x2588": 19,
+          "4288x2848": 3,
+          "640x480": 6,
+          "819x614": 0,
+          "other": 6
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 12,
+          "2588x1958": 9,
+          "2896x1944": 4,
+          "3216x2136": 6,
+          "3388x2588": 2,
+          "4288x2848": 1,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 1
+        },
+        "4": {
+          "1050x1050": 2,
+          "1504x1000": 2,
+          "1844x1226": 4,
+          "2048x1536": 0,
+          "2416x1736": 16,
+          "2588x1958": 9,
+          "2896x1944": 1,
+          "3216x2136": 11,
+          "3388x2588": 6,
+          "4288x2848": 4,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 2
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 9.8611,
+        "2": 27.2222,
+        "3": 5.0,
+        "4": 7.9167
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.8056,
+        "1504x1000": 1.6667,
+        "1844x1226": 1.8056,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.0833,
+        "2588x1958": 14.5833,
+        "2896x1944": 0.9722,
+        "3216x2136": 11.1111,
+        "3388x2588": 4.1667,
+        "4288x2848": 1.5278,
+        "640x480": 0.9722,
+        "819x614": 7.9167,
+        "other": 1.6667
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": -0.1389,
+        "2": 0.1111,
+        "3": 0.0,
+        "4": 0.0556
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.25,
+        "1504x1000": -0.2778,
+        "1844x1226": 0.1111,
+        "2048x1536": -0.0278,
+        "2416x1736": -0.0278,
+        "2588x1958": -0.2222,
+        "2896x1944": 0.1389,
+        "3216x2136": 0.1111,
+        "3388x2588": 0.25,
+        "4288x2848": 0.0833,
+        "640x480": -0.1944,
+        "819x614": -0.0556,
+        "other": 0.3611
+      }
+    },
+    {
+      "fold": 2,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "grade_counts": {
+        "0": 1261,
+        "1": 252,
+        "2": 682,
+        "3": 127,
+        "4": 198
+      },
+      "acquisition_counts": {
+        "1050x1050": 683,
+        "1504x1000": 46,
+        "1844x1226": 43,
+        "2048x1536": 246,
+        "2416x1736": 431,
+        "2588x1958": 372,
+        "2896x1944": 20,
+        "3216x2136": 279,
+        "3388x2588": 100,
+        "4288x2848": 39,
+        "640x480": 27,
+        "819x614": 201,
+        "other": 33
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 631,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 246,
+          "2416x1736": 19,
+          "2588x1958": 162,
+          "2896x1944": 0,
+          "3216x2136": 2,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 195,
+          "other": 6
+        },
+        "1": {
+          "1050x1050": 14,
+          "1504x1000": 2,
+          "1844x1226": 9,
+          "2048x1536": 0,
+          "2416x1736": 157,
+          "2588x1958": 30,
+          "2896x1944": 3,
+          "3216x2136": 9,
+          "3388x2588": 10,
+          "4288x2848": 13,
+          "640x480": 0,
+          "819x614": 5,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 27,
+          "1504x1000": 37,
+          "1844x1226": 20,
+          "2048x1536": 0,
+          "2416x1736": 159,
+          "2588x1958": 115,
+          "2896x1944": 1,
+          "3216x2136": 210,
+          "3388x2588": 64,
+          "4288x2848": 8,
+          "640x480": 23,
+          "819x614": 1,
+          "other": 17
+        },
+        "3": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 41,
+          "2588x1958": 32,
+          "2896x1944": 14,
+          "3216x2136": 21,
+          "3388x2588": 5,
+          "4288x2848": 4,
+          "640x480": 2,
+          "819x614": 0,
+          "other": 5
+        },
+        "4": {
+          "1050x1050": 9,
+          "1504x1000": 7,
+          "1844x1226": 13,
+          "2048x1536": 0,
+          "2416x1736": 55,
+          "2588x1958": 33,
+          "2896x1944": 2,
+          "3216x2136": 37,
+          "3388x2588": 21,
+          "4288x2848": 14,
+          "640x480": 2,
+          "819x614": 0,
+          "other": 5
+        }
+      },
+      "grade_percent": {
+        "0": 50.0397,
+        "1": 10.0,
+        "2": 27.0635,
+        "3": 5.0397,
+        "4": 7.8571
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.1032,
+        "1504x1000": 1.8254,
+        "1844x1226": 1.7063,
+        "2048x1536": 9.7619,
+        "2416x1736": 17.1032,
+        "2588x1958": 14.7619,
+        "2896x1944": 0.7937,
+        "3216x2136": 11.0714,
+        "3388x2588": 3.9683,
+        "4288x2848": 1.5476,
+        "640x480": 1.0714,
+        "819x614": 7.9762,
+        "other": 1.3095
+      },
+      "grade_deviation_pp": {
+        "0": 0.0119,
+        "1": 0.0,
+        "2": -0.0476,
+        "3": 0.0397,
+        "4": -0.004
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.0476,
+        "1504x1000": -0.119,
+        "1844x1226": 0.0119,
+        "2048x1536": 0.0119,
+        "2416x1736": -0.0079,
+        "2588x1958": -0.0437,
+        "2896x1944": -0.0397,
+        "3216x2136": 0.0714,
+        "3388x2588": 0.0516,
+        "4288x2848": 0.1032,
+        "640x480": -0.0952,
+        "819x614": 0.004,
+        "other": 0.004
+      }
+    },
+    {
+      "fold": 2,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 349,
+      "grade_counts": {
+        "0": 180,
+        "1": 35,
+        "2": 99,
+        "3": 17,
+        "4": 29
+      },
+      "acquisition_counts": {
+        "1050x1050": 96,
+        "1504x1000": 10,
+        "1844x1226": 6,
+        "2048x1536": 35,
+        "2416x1736": 62,
+        "2588x1958": 54,
+        "2896x1944": 4,
+        "3216x2136": 38,
+        "3388x2588": 14,
+        "4288x2848": 4,
+        "640x480": 4,
+        "819x614": 29,
+        "other": 4
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 90,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 35,
+          "2416x1736": 3,
+          "2588x1958": 23,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 28,
+          "other": 1
+        },
+        "1": {
+          "1050x1050": 1,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 0,
+          "3388x2588": 1,
+          "4288x2848": 1,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 4,
+          "1504x1000": 6,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 17,
+          "2896x1944": 0,
+          "3216x2136": 30,
+          "3388x2588": 9,
+          "4288x2848": 1,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 3
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 2,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 5,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        },
+        "4": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 8,
+          "2588x1958": 4,
+          "2896x1944": 0,
+          "3216x2136": 5,
+          "3388x2588": 4,
+          "4288x2848": 2,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 9.7222,
+        "2": 27.5,
+        "3": 4.7222,
+        "4": 8.0556
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.6667,
+        "1504x1000": 2.7778,
+        "1844x1226": 1.6667,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.2222,
+        "2588x1958": 15.0,
+        "2896x1944": 1.1111,
+        "3216x2136": 10.5556,
+        "3388x2588": 3.8889,
+        "4288x2848": 1.1111,
+        "640x480": 1.1111,
+        "819x614": 8.0556,
+        "other": 1.1111
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": -0.2778,
+        "2": 0.3889,
+        "3": -0.2778,
+        "4": 0.1944
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.3889,
+        "1504x1000": 0.8333,
+        "1844x1226": -0.0278,
+        "2048x1536": -0.0278,
+        "2416x1736": 0.1111,
+        "2588x1958": 0.1944,
+        "2896x1944": 0.2778,
+        "3216x2136": -0.4444,
+        "3388x2588": -0.0278,
+        "4288x2848": -0.3333,
+        "640x480": -0.0556,
+        "819x614": 0.0833,
+        "other": -0.1944
+      }
+    },
+    {
+      "fold": 2,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 701,
+      "grade_counts": {
+        "0": 360,
+        "1": 73,
+        "2": 195,
+        "3": 36,
+        "4": 56
+      },
+      "acquisition_counts": {
+        "1050x1050": 195,
+        "1504x1000": 14,
+        "1844x1226": 12,
+        "2048x1536": 70,
+        "2416x1736": 123,
+        "2588x1958": 107,
+        "2896x1944": 6,
+        "3216x2136": 79,
+        "3388x2588": 27,
+        "4288x2848": 9,
+        "640x480": 11,
+        "819x614": 57,
+        "other": 10
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 180,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 70,
+          "2416x1736": 5,
+          "2588x1958": 46,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 56,
+          "other": 3
+        },
+        "1": {
+          "1050x1050": 4,
+          "1504x1000": 0,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 9,
+          "2896x1944": 1,
+          "3216x2136": 3,
+          "3388x2588": 2,
+          "4288x2848": 4,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 1
+        },
+        "2": {
+          "1050x1050": 8,
+          "1504x1000": 11,
+          "1844x1226": 5,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 33,
+          "2896x1944": 1,
+          "3216x2136": 60,
+          "3388x2588": 18,
+          "4288x2848": 2,
+          "640x480": 7,
+          "819x614": 0,
+          "other": 5
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 12,
+          "2588x1958": 10,
+          "2896x1944": 3,
+          "3216x2136": 6,
+          "3388x2588": 1,
+          "4288x2848": 0,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 1
+        },
+        "4": {
+          "1050x1050": 3,
+          "1504x1000": 3,
+          "1844x1226": 4,
+          "2048x1536": 0,
+          "2416x1736": 16,
+          "2588x1958": 9,
+          "2896x1944": 1,
+          "3216x2136": 10,
+          "3388x2588": 6,
+          "4288x2848": 3,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 10.1389,
+        "2": 27.0833,
+        "3": 5.0,
+        "4": 7.7778
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.0833,
+        "1504x1000": 1.9444,
+        "1844x1226": 1.6667,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.0833,
+        "2588x1958": 14.8611,
+        "2896x1944": 0.8333,
+        "3216x2136": 10.9722,
+        "3388x2588": 3.75,
+        "4288x2848": 1.25,
+        "640x480": 1.5278,
+        "819x614": 7.9167,
+        "other": 1.3889
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": 0.1389,
+        "2": -0.0278,
+        "3": 0.0,
+        "4": -0.0833
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.0278,
+        "1504x1000": 0.0,
+        "1844x1226": -0.0278,
+        "2048x1536": -0.0278,
+        "2416x1736": -0.0278,
+        "2588x1958": 0.0556,
+        "2896x1944": 0.0,
+        "3216x2136": -0.0278,
+        "3388x2588": -0.1667,
+        "4288x2848": -0.1944,
+        "640x480": 0.3611,
+        "819x614": -0.0556,
+        "other": 0.0833
+      }
+    },
+    {
+      "fold": 3,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2454,
+      "grade_counts": {
+        "0": 1262,
+        "1": 253,
+        "2": 684,
+        "3": 125,
+        "4": 196
+      },
+      "acquisition_counts": {
+        "1050x1050": 683,
+        "1504x1000": 47,
+        "1844x1226": 43,
+        "2048x1536": 246,
+        "2416x1736": 431,
+        "2588x1958": 374,
+        "2896x1944": 22,
+        "3216x2136": 278,
+        "3388x2588": 98,
+        "4288x2848": 36,
+        "640x480": 28,
+        "819x614": 201,
+        "other": 33
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 631,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 246,
+          "2416x1736": 19,
+          "2588x1958": 162,
+          "2896x1944": 0,
+          "3216x2136": 2,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 196,
+          "other": 6
+        },
+        "1": {
+          "1050x1050": 13,
+          "1504x1000": 2,
+          "1844x1226": 9,
+          "2048x1536": 0,
+          "2416x1736": 158,
+          "2588x1958": 31,
+          "2896x1944": 4,
+          "3216x2136": 9,
+          "3388x2588": 9,
+          "4288x2848": 13,
+          "640x480": 0,
+          "819x614": 4,
+          "other": 1
+        },
+        "2": {
+          "1050x1050": 28,
+          "1504x1000": 37,
+          "1844x1226": 20,
+          "2048x1536": 0,
+          "2416x1736": 159,
+          "2588x1958": 116,
+          "2896x1944": 2,
+          "3216x2136": 210,
+          "3388x2588": 64,
+          "4288x2848": 7,
+          "640x480": 23,
+          "819x614": 1,
+          "other": 17
+        },
+        "3": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 40,
+          "2588x1958": 33,
+          "2896x1944": 13,
+          "3216x2136": 21,
+          "3388x2588": 4,
+          "4288x2848": 3,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 6
+        },
+        "4": {
+          "1050x1050": 9,
+          "1504x1000": 8,
+          "1844x1226": 14,
+          "2048x1536": 0,
+          "2416x1736": 55,
+          "2588x1958": 32,
+          "2896x1944": 3,
+          "3216x2136": 36,
+          "3388x2588": 21,
+          "4288x2848": 13,
+          "640x480": 2,
+          "819x614": 0,
+          "other": 3
+        }
+      },
+      "grade_percent": {
+        "0": 50.0794,
+        "1": 10.0397,
+        "2": 27.1429,
+        "3": 4.9603,
+        "4": 7.7778
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.1032,
+        "1504x1000": 1.8651,
+        "1844x1226": 1.7063,
+        "2048x1536": 9.7619,
+        "2416x1736": 17.1032,
+        "2588x1958": 14.8413,
+        "2896x1944": 0.873,
+        "3216x2136": 11.0317,
+        "3388x2588": 3.8889,
+        "4288x2848": 1.4286,
+        "640x480": 1.1111,
+        "819x614": 7.9762,
+        "other": 1.3095
+      },
+      "grade_deviation_pp": {
+        "0": 0.0516,
+        "1": 0.0397,
+        "2": 0.0317,
+        "3": -0.0397,
+        "4": -0.0833
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.0476,
+        "1504x1000": -0.0794,
+        "1844x1226": 0.0119,
+        "2048x1536": 0.0119,
+        "2416x1736": -0.0079,
+        "2588x1958": 0.0357,
+        "2896x1944": 0.0397,
+        "3216x2136": 0.0317,
+        "3388x2588": -0.0278,
+        "4288x2848": -0.0159,
+        "640x480": -0.0556,
+        "819x614": 0.004,
+        "other": 0.004
+      }
+    },
+    {
+      "fold": 3,
+      "subset": "val",
+      "n_images": 360,
+      "n_clusters": 350,
+      "grade_counts": {
+        "0": 180,
+        "1": 34,
+        "2": 99,
+        "3": 18,
+        "4": 29
+      },
+      "acquisition_counts": {
+        "1050x1050": 97,
+        "1504x1000": 8,
+        "1844x1226": 6,
+        "2048x1536": 35,
+        "2416x1736": 60,
+        "2588x1958": 52,
+        "2896x1944": 2,
+        "3216x2136": 39,
+        "3388x2588": 14,
+        "4288x2848": 6,
+        "640x480": 7,
+        "819x614": 29,
+        "other": 5
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 90,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 35,
+          "2416x1736": 2,
+          "2588x1958": 23,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 28,
+          "other": 2
+        },
+        "1": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 22,
+          "2588x1958": 4,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 1,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 4,
+          "1504x1000": 6,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 22,
+          "2588x1958": 16,
+          "2896x1944": 0,
+          "3216x2136": 30,
+          "3388x2588": 9,
+          "4288x2848": 2,
+          "640x480": 4,
+          "819x614": 0,
+          "other": 3
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 6,
+          "2588x1958": 4,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 1,
+          "4288x2848": 0,
+          "640x480": 2,
+          "819x614": 0,
+          "other": 0
+        },
+        "4": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 8,
+          "2588x1958": 5,
+          "2896x1944": 0,
+          "3216x2136": 5,
+          "3388x2588": 3,
+          "4288x2848": 2,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 9.4444,
+        "2": 27.5,
+        "3": 5.0,
+        "4": 8.0556
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.9444,
+        "1504x1000": 2.2222,
+        "1844x1226": 1.6667,
+        "2048x1536": 9.7222,
+        "2416x1736": 16.6667,
+        "2588x1958": 14.4444,
+        "2896x1944": 0.5556,
+        "3216x2136": 10.8333,
+        "3388x2588": 3.8889,
+        "4288x2848": 1.6667,
+        "640x480": 1.9444,
+        "819x614": 8.0556,
+        "other": 1.3889
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": -0.5556,
+        "2": 0.3889,
+        "3": 0.0,
+        "4": 0.1944
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.1111,
+        "1504x1000": 0.2778,
+        "1844x1226": -0.0278,
+        "2048x1536": -0.0278,
+        "2416x1736": -0.4444,
+        "2588x1958": -0.3611,
+        "2896x1944": -0.2778,
+        "3216x2136": -0.1667,
+        "3388x2588": -0.0278,
+        "4288x2848": 0.2222,
+        "640x480": 0.7778,
+        "819x614": 0.0833,
+        "other": 0.0833
+      }
+    },
+    {
+      "fold": 3,
+      "subset": "test",
+      "n_images": 720,
+      "n_clusters": 700,
+      "grade_counts": {
+        "0": 359,
+        "1": 73,
+        "2": 193,
+        "3": 37,
+        "4": 58
+      },
+      "acquisition_counts": {
+        "1050x1050": 194,
+        "1504x1000": 15,
+        "1844x1226": 12,
+        "2048x1536": 70,
+        "2416x1736": 125,
+        "2588x1958": 107,
+        "2896x1944": 6,
+        "3216x2136": 79,
+        "3388x2588": 29,
+        "4288x2848": 10,
+        "640x480": 7,
+        "819x614": 57,
+        "other": 9
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 180,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 70,
+          "2416x1736": 6,
+          "2588x1958": 46,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 55,
+          "other": 2
+        },
+        "1": {
+          "1050x1050": 4,
+          "1504x1000": 0,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 9,
+          "2896x1944": 2,
+          "3216x2136": 2,
+          "3388x2588": 3,
+          "4288x2848": 3,
+          "640x480": 0,
+          "819x614": 2,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 7,
+          "1504x1000": 11,
+          "1844x1226": 5,
+          "2048x1536": 0,
+          "2416x1736": 46,
+          "2588x1958": 33,
+          "2896x1944": 0,
+          "3216x2136": 60,
+          "3388x2588": 18,
+          "4288x2848": 2,
+          "640x480": 6,
+          "819x614": 0,
+          "other": 5
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 2,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 12,
+          "2588x1958": 10,
+          "2896x1944": 4,
+          "3216x2136": 6,
+          "3388x2588": 1,
+          "4288x2848": 1,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        },
+        "4": {
+          "1050x1050": 3,
+          "1504x1000": 2,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 16,
+          "2588x1958": 9,
+          "2896x1944": 0,
+          "3216x2136": 11,
+          "3388x2588": 7,
+          "4288x2848": 4,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 2
+        }
+      },
+      "grade_percent": {
+        "0": 49.8611,
+        "1": 10.1389,
+        "2": 26.8056,
+        "3": 5.1389,
+        "4": 8.0556
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.9444,
+        "1504x1000": 2.0833,
+        "1844x1226": 1.6667,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.3611,
+        "2588x1958": 14.8611,
+        "2896x1944": 0.8333,
+        "3216x2136": 10.9722,
+        "3388x2588": 4.0278,
+        "4288x2848": 1.3889,
+        "640x480": 0.9722,
+        "819x614": 7.9167,
+        "other": 1.25
+      },
+      "grade_deviation_pp": {
+        "0": -0.1667,
+        "1": 0.1389,
+        "2": -0.3056,
+        "3": 0.1389,
+        "4": 0.1944
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.1111,
+        "1504x1000": 0.1389,
+        "1844x1226": -0.0278,
+        "2048x1536": -0.0278,
+        "2416x1736": 0.25,
+        "2588x1958": 0.0556,
+        "2896x1944": 0.0,
+        "3216x2136": -0.0278,
+        "3388x2588": 0.1111,
+        "4288x2848": -0.0556,
+        "640x480": -0.1944,
+        "819x614": -0.0556,
+        "other": -0.0556
+      }
+    },
+    {
+      "fold": 4,
+      "subset": "train",
+      "n_images": 2520,
+      "n_clusters": 2453,
+      "grade_counts": {
+        "0": 1260,
+        "1": 252,
+        "2": 682,
+        "3": 126,
+        "4": 200
+      },
+      "acquisition_counts": {
+        "1050x1050": 680,
+        "1504x1000": 49,
+        "1844x1226": 43,
+        "2048x1536": 245,
+        "2416x1736": 434,
+        "2588x1958": 372,
+        "2896x1944": 21,
+        "3216x2136": 278,
+        "3388x2588": 99,
+        "4288x2848": 33,
+        "640x480": 31,
+        "819x614": 199,
+        "other": 36
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 630,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 245,
+          "2416x1736": 19,
+          "2588x1958": 162,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 195,
+          "other": 8
+        },
+        "1": {
+          "1050x1050": 13,
+          "1504x1000": 2,
+          "1844x1226": 10,
+          "2048x1536": 0,
+          "2416x1736": 158,
+          "2588x1958": 30,
+          "2896x1944": 4,
+          "3216x2136": 9,
+          "3388x2588": 9,
+          "4288x2848": 12,
+          "640x480": 0,
+          "819x614": 4,
+          "other": 1
+        },
+        "2": {
+          "1050x1050": 27,
+          "1504x1000": 37,
+          "1844x1226": 19,
+          "2048x1536": 0,
+          "2416x1736": 159,
+          "2588x1958": 115,
+          "2896x1944": 2,
+          "3216x2136": 210,
+          "3388x2588": 64,
+          "4288x2848": 7,
+          "640x480": 23,
+          "819x614": 0,
+          "other": 19
+        },
+        "3": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 42,
+          "2588x1958": 33,
+          "2896x1944": 13,
+          "3216x2136": 21,
+          "3388x2588": 4,
+          "4288x2848": 1,
+          "640x480": 5,
+          "819x614": 0,
+          "other": 3
+        },
+        "4": {
+          "1050x1050": 9,
+          "1504x1000": 8,
+          "1844x1226": 13,
+          "2048x1536": 0,
+          "2416x1736": 56,
+          "2588x1958": 32,
+          "2896x1944": 2,
+          "3216x2136": 37,
+          "3388x2588": 22,
+          "4288x2848": 13,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 5
+        }
+      },
+      "grade_percent": {
+        "0": 50.0,
+        "1": 10.0,
+        "2": 27.0635,
+        "3": 5.0,
+        "4": 7.9365
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.9841,
+        "1504x1000": 1.9444,
+        "1844x1226": 1.7063,
+        "2048x1536": 9.7222,
+        "2416x1736": 17.2222,
+        "2588x1958": 14.7619,
+        "2896x1944": 0.8333,
+        "3216x2136": 11.0317,
+        "3388x2588": 3.9286,
+        "4288x2848": 1.3095,
+        "640x480": 1.2302,
+        "819x614": 7.8968,
+        "other": 1.4286
+      },
+      "grade_deviation_pp": {
+        "0": -0.0278,
+        "1": 0.0,
+        "2": -0.0476,
+        "3": 0.0,
+        "4": 0.0754
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.0714,
+        "1504x1000": 0.0,
+        "1844x1226": 0.0119,
+        "2048x1536": -0.0278,
+        "2416x1736": 0.1111,
+        "2588x1958": -0.0437,
+        "2896x1944": 0.0,
+        "3216x2136": 0.0317,
+        "3388x2588": 0.0119,
+        "4288x2848": -0.1349,
+        "640x480": 0.0635,
+        "819x614": -0.0754,
+        "other": 0.123
+      }
+    },
+    {
+      "fold": 4,
+      "subset": "val",
+      "n_images": 361,
+      "n_clusters": 351,
+      "grade_counts": {
+        "0": 180,
+        "1": 37,
+        "2": 99,
+        "3": 18,
+        "4": 27
+      },
+      "acquisition_counts": {
+        "1050x1050": 97,
+        "1504x1000": 8,
+        "1844x1226": 6,
+        "2048x1536": 35,
+        "2416x1736": 61,
+        "2588x1958": 54,
+        "2896x1944": 3,
+        "3216x2136": 39,
+        "3388x2588": 15,
+        "4288x2848": 8,
+        "640x480": 3,
+        "819x614": 29,
+        "other": 3
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 90,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 35,
+          "2416x1736": 3,
+          "2588x1958": 23,
+          "2896x1944": 0,
+          "3216x2136": 0,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 28,
+          "other": 1
+        },
+        "1": {
+          "1050x1050": 2,
+          "1504x1000": 0,
+          "1844x1226": 1,
+          "2048x1536": 0,
+          "2416x1736": 22,
+          "2588x1958": 5,
+          "2896x1944": 1,
+          "3216x2136": 1,
+          "3388x2588": 2,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 1,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 4,
+          "1504x1000": 6,
+          "1844x1226": 3,
+          "2048x1536": 0,
+          "2416x1736": 23,
+          "2588x1958": 17,
+          "2896x1944": 0,
+          "3216x2136": 30,
+          "3388x2588": 9,
+          "4288x2848": 2,
+          "640x480": 3,
+          "819x614": 0,
+          "other": 2
+        },
+        "3": {
+          "1050x1050": 0,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 5,
+          "2588x1958": 5,
+          "2896x1944": 2,
+          "3216x2136": 3,
+          "3388x2588": 1,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        },
+        "4": {
+          "1050x1050": 1,
+          "1504x1000": 2,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 8,
+          "2588x1958": 4,
+          "2896x1944": 0,
+          "3216x2136": 5,
+          "3388x2588": 3,
+          "4288x2848": 2,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 49.8615,
+        "1": 10.2493,
+        "2": 27.4238,
+        "3": 4.9861,
+        "4": 7.4792
+      },
+      "acquisition_percent": {
+        "1050x1050": 26.8698,
+        "1504x1000": 2.2161,
+        "1844x1226": 1.662,
+        "2048x1536": 9.6953,
+        "2416x1736": 16.8975,
+        "2588x1958": 14.9584,
+        "2896x1944": 0.831,
+        "3216x2136": 10.8033,
+        "3388x2588": 4.1551,
+        "4288x2848": 2.2161,
+        "640x480": 0.831,
+        "819x614": 8.0332,
+        "other": 0.831
+      },
+      "grade_deviation_pp": {
+        "0": -0.1663,
+        "1": 0.2493,
+        "2": 0.3127,
+        "3": -0.0139,
+        "4": -0.3819
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": -0.1857,
+        "1504x1000": 0.2716,
+        "1844x1226": -0.0324,
+        "2048x1536": -0.0547,
+        "2416x1736": -0.2136,
+        "2588x1958": 0.1529,
+        "2896x1944": -0.0023,
+        "3216x2136": -0.1967,
+        "3388x2588": 0.2385,
+        "4288x2848": 0.7716,
+        "640x480": -0.3356,
+        "819x614": 0.061,
+        "other": -0.4745
+      }
+    },
+    {
+      "fold": 4,
+      "subset": "test",
+      "n_images": 719,
+      "n_clusters": 700,
+      "grade_counts": {
+        "0": 361,
+        "1": 71,
+        "2": 195,
+        "3": 36,
+        "4": 56
+      },
+      "acquisition_counts": {
+        "1050x1050": 197,
+        "1504x1000": 13,
+        "1844x1226": 12,
+        "2048x1536": 71,
+        "2416x1736": 121,
+        "2588x1958": 107,
+        "2896x1944": 6,
+        "3216x2136": 79,
+        "3388x2588": 27,
+        "4288x2848": 11,
+        "640x480": 8,
+        "819x614": 59,
+        "other": 8
+      },
+      "grade_acquisition_counts": {
+        "0": {
+          "1050x1050": 181,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 71,
+          "2416x1736": 5,
+          "2588x1958": 46,
+          "2896x1944": 0,
+          "3216x2136": 1,
+          "3388x2588": 0,
+          "4288x2848": 0,
+          "640x480": 0,
+          "819x614": 56,
+          "other": 1
+        },
+        "1": {
+          "1050x1050": 4,
+          "1504x1000": 0,
+          "1844x1226": 2,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 9,
+          "2896x1944": 1,
+          "3216x2136": 2,
+          "3388x2588": 2,
+          "4288x2848": 4,
+          "640x480": 0,
+          "819x614": 2,
+          "other": 0
+        },
+        "2": {
+          "1050x1050": 8,
+          "1504x1000": 11,
+          "1844x1226": 6,
+          "2048x1536": 0,
+          "2416x1736": 45,
+          "2588x1958": 33,
+          "2896x1944": 0,
+          "3216x2136": 60,
+          "3388x2588": 18,
+          "4288x2848": 2,
+          "640x480": 7,
+          "819x614": 1,
+          "other": 4
+        },
+        "3": {
+          "1050x1050": 1,
+          "1504x1000": 0,
+          "1844x1226": 0,
+          "2048x1536": 0,
+          "2416x1736": 11,
+          "2588x1958": 9,
+          "2896x1944": 4,
+          "3216x2136": 6,
+          "3388x2588": 1,
+          "4288x2848": 1,
+          "640x480": 0,
+          "819x614": 0,
+          "other": 3
+        },
+        "4": {
+          "1050x1050": 3,
+          "1504x1000": 2,
+          "1844x1226": 4,
+          "2048x1536": 0,
+          "2416x1736": 15,
+          "2588x1958": 10,
+          "2896x1944": 1,
+          "3216x2136": 10,
+          "3388x2588": 6,
+          "4288x2848": 4,
+          "640x480": 1,
+          "819x614": 0,
+          "other": 0
+        }
+      },
+      "grade_percent": {
+        "0": 50.2086,
+        "1": 9.8748,
+        "2": 27.121,
+        "3": 5.007,
+        "4": 7.7886
+      },
+      "acquisition_percent": {
+        "1050x1050": 27.3992,
+        "1504x1000": 1.8081,
+        "1844x1226": 1.669,
+        "2048x1536": 9.8748,
+        "2416x1736": 16.8289,
+        "2588x1958": 14.8818,
+        "2896x1944": 0.8345,
+        "3216x2136": 10.9875,
+        "3388x2588": 3.7552,
+        "4288x2848": 1.5299,
+        "640x480": 1.1127,
+        "819x614": 8.2058,
+        "other": 1.1127
+      },
+      "grade_deviation_pp": {
+        "0": 0.1808,
+        "1": -0.1252,
+        "2": 0.0099,
+        "3": 0.007,
+        "4": -0.0725
+      },
+      "acquisition_deviation_pp": {
+        "1050x1050": 0.3436,
+        "1504x1000": -0.1364,
+        "1844x1226": -0.0255,
+        "2048x1536": 0.1248,
+        "2416x1736": -0.2822,
+        "2588x1958": 0.0762,
+        "2896x1944": 0.0012,
+        "3216x2136": -0.0125,
+        "3388x2588": -0.1615,
+        "4288x2848": 0.0855,
+        "640x480": -0.054,
+        "819x614": 0.2336,
+        "other": -0.1929
+      }
+    }
+  ],
+  "max_absolute_deviation_pp": {
+    "grade": 0.5556,
+    "acquisition": 0.8333
+  },
+  "audit": {
+    "all_passed": true,
+    "global_checks": {
+      "each_eligible_image_test_once": true,
+      "each_eligible_cluster_test_once": true,
+      "all_input_ids_accounted_for": true,
+      "cluster_has_one_pixel_hash": true,
+      "pixel_hash_has_one_cluster": true
+    },
+    "fold_checks": [
+      {
+        "fold": 0,
+        "passed": true,
+        "checks": {
+          "unique_ids_within_subsets": true,
+          "complete_eligible_coverage": true,
+          "excluded_absent": true,
+          "all_five_grades": true,
+          "train_val_id_code_disjoint": true,
+          "train_val_cluster_id_disjoint": true,
+          "train_val_pixel_sha256_disjoint": true,
+          "train_test_id_code_disjoint": true,
+          "train_test_cluster_id_disjoint": true,
+          "train_test_pixel_sha256_disjoint": true,
+          "val_test_id_code_disjoint": true,
+          "val_test_cluster_id_disjoint": true,
+          "val_test_pixel_sha256_disjoint": true
+        }
+      },
+      {
+        "fold": 1,
+        "passed": true,
+        "checks": {
+          "unique_ids_within_subsets": true,
+          "complete_eligible_coverage": true,
+          "excluded_absent": true,
+          "all_five_grades": true,
+          "train_val_id_code_disjoint": true,
+          "train_val_cluster_id_disjoint": true,
+          "train_val_pixel_sha256_disjoint": true,
+          "train_test_id_code_disjoint": true,
+          "train_test_cluster_id_disjoint": true,
+          "train_test_pixel_sha256_disjoint": true,
+          "val_test_id_code_disjoint": true,
+          "val_test_cluster_id_disjoint": true,
+          "val_test_pixel_sha256_disjoint": true
+        }
+      },
+      {
+        "fold": 2,
+        "passed": true,
+        "checks": {
+          "unique_ids_within_subsets": true,
+          "complete_eligible_coverage": true,
+          "excluded_absent": true,
+          "all_five_grades": true,
+          "train_val_id_code_disjoint": true,
+          "train_val_cluster_id_disjoint": true,
+          "train_val_pixel_sha256_disjoint": true,
+          "train_test_id_code_disjoint": true,
+          "train_test_cluster_id_disjoint": true,
+          "train_test_pixel_sha256_disjoint": true,
+          "val_test_id_code_disjoint": true,
+          "val_test_cluster_id_disjoint": true,
+          "val_test_pixel_sha256_disjoint": true
+        }
+      },
+      {
+        "fold": 3,
+        "passed": true,
+        "checks": {
+          "unique_ids_within_subsets": true,
+          "complete_eligible_coverage": true,
+          "excluded_absent": true,
+          "all_five_grades": true,
+          "train_val_id_code_disjoint": true,
+          "train_val_cluster_id_disjoint": true,
+          "train_val_pixel_sha256_disjoint": true,
+          "train_test_id_code_disjoint": true,
+          "train_test_cluster_id_disjoint": true,
+          "train_test_pixel_sha256_disjoint": true,
+          "val_test_id_code_disjoint": true,
+          "val_test_cluster_id_disjoint": true,
+          "val_test_pixel_sha256_disjoint": true
+        }
+      },
+      {
+        "fold": 4,
+        "passed": true,
+        "checks": {
+          "unique_ids_within_subsets": true,
+          "complete_eligible_coverage": true,
+          "excluded_absent": true,
+          "all_five_grades": true,
+          "train_val_id_code_disjoint": true,
+          "train_val_cluster_id_disjoint": true,
+          "train_val_pixel_sha256_disjoint": true,
+          "train_test_id_code_disjoint": true,
+          "train_test_cluster_id_disjoint": true,
+          "train_test_pixel_sha256_disjoint": true,
+          "val_test_id_code_disjoint": true,
+          "val_test_cluster_id_disjoint": true,
+          "val_test_pixel_sha256_disjoint": true
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Không rà soát hay gom ảnh gần trùng; không tuyên bố hoàn tất phần gần trùng của Mục 5.3.",
+    "Không có mã bệnh nhân nên chưa bảo đảm tách theo bệnh nhân.",
+    "Không dùng test gốc không nhãn và không đánh giá chồng lấp với test gốc.",
+    "Nhóm kích thước chỉ đại diện điều kiện thu nhận; không loại bỏ đường tắt thiết bị.",
+    "Phân tầng là gần đúng dưới ràng buộc cụm; xem số ảnh và chênh lệch thực tế.",
+    "Chưa chạy baseline kích thước, mô hình ảnh hoặc kiểm tra dấu vết thiết bị."
+  ],
+  "output_sha256": {
+    "clusters.csv": "59a4e360ac177dd031d54e6ec35b1d1f54e5fa2876ee76e98fd2629652c8b75b",
+    "acquisition_groups.csv": "8345ecfbd743e95d4b7220099c1255efc58d43585d3038713337b89e3816dd45",
+    "conflict_decisions.csv": "3e8d482ee852a6efc9af8a3798d3658807372709a2c64937fd13c45122624c5d",
+    "splits.json": "39fe22515fa9d9ab32d1c095588248416c6700b9f91076b0f0d86b5d95f5cb6d"
+  }
+}

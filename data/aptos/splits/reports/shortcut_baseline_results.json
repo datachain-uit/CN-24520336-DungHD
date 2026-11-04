@@ -1,0 +1,1002 @@
+[
+  {
+    "scenario": "S0",
+    "fold": 0,
+    "partition": "validation",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2508,
+    "accuracy": 0.7150837988826816,
+    "qwk": 0.6454232948745537,
+    "macro_f1": 0.3731504608050164,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        27,
+        1,
+        2
+      ],
+      [
+        20,
+        0,
+        75,
+        0,
+        2
+      ],
+      [
+        5,
+        0,
+        10,
+        2,
+        0
+      ],
+      [
+        4,
+        0,
+        21,
+        0,
+        2
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 0,
+    "partition": "validation",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2508,
+    "accuracy": 0.6983240223463687,
+    "qwk": 0.6047272429868324,
+    "macro_f1": 0.30312385627247085,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        30,
+        0,
+        0
+      ],
+      [
+        23,
+        1,
+        73,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        11,
+        0,
+        0
+      ],
+      [
+        4,
+        3,
+        20,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 0,
+    "partition": "test",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2508,
+    "accuracy": 0.7168758716875872,
+    "qwk": 0.6330434997660859,
+    "macro_f1": 0.3748963331314841,
+    "confusion_matrix": [
+      [
+        353,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        14,
+        0,
+        53,
+        1,
+        4
+      ],
+      [
+        41,
+        0,
+        153,
+        0,
+        2
+      ],
+      [
+        9,
+        0,
+        21,
+        4,
+        0
+      ],
+      [
+        11,
+        0,
+        41,
+        0,
+        4
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 0,
+    "partition": "test",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2508,
+    "accuracy": 0.6903765690376569,
+    "qwk": 0.6100108279295746,
+    "macro_f1": 0.30354163890739505,
+    "confusion_matrix": [
+      [
+        350,
+        1,
+        8,
+        0,
+        0
+      ],
+      [
+        14,
+        1,
+        57,
+        0,
+        0
+      ],
+      [
+        48,
+        4,
+        144,
+        0,
+        0
+      ],
+      [
+        9,
+        0,
+        25,
+        0,
+        0
+      ],
+      [
+        10,
+        1,
+        45,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 1,
+    "partition": "validation",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2508,
+    "accuracy": 0.7150837988826816,
+    "qwk": 0.6297290544505842,
+    "macro_f1": 0.3496219603006394,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        2,
+        26,
+        1,
+        0
+      ],
+      [
+        21,
+        1,
+        76,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        11,
+        1,
+        0
+      ],
+      [
+        4,
+        2,
+        21,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 1,
+    "partition": "validation",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2508,
+    "accuracy": 0.6899441340782123,
+    "qwk": 0.59918128859577,
+    "macro_f1": 0.3062366170414951,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        1,
+        28,
+        0,
+        0
+      ],
+      [
+        25,
+        4,
+        69,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        11,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        22,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 1,
+    "partition": "test",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2508,
+    "accuracy": 0.7126917712691772,
+    "qwk": 0.6123586758129115,
+    "macro_f1": 0.3536042417266579,
+    "confusion_matrix": [
+      [
+        355,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        14,
+        3,
+        55,
+        1,
+        0
+      ],
+      [
+        42,
+        2,
+        150,
+        0,
+        1
+      ],
+      [
+        10,
+        1,
+        20,
+        3,
+        0
+      ],
+      [
+        11,
+        4,
+        38,
+        1,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 1,
+    "partition": "test",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2508,
+    "accuracy": 0.6903765690376569,
+    "qwk": 0.5904612309010424,
+    "macro_f1": 0.303297060747924,
+    "confusion_matrix": [
+      [
+        353,
+        2,
+        6,
+        0,
+        0
+      ],
+      [
+        14,
+        1,
+        58,
+        0,
+        0
+      ],
+      [
+        49,
+        5,
+        141,
+        0,
+        0
+      ],
+      [
+        10,
+        2,
+        22,
+        0,
+        0
+      ],
+      [
+        12,
+        1,
+        41,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 2,
+    "partition": "validation",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 359,
+    "train_n": 2507,
+    "accuracy": 0.7158774373259053,
+    "qwk": 0.6364015490020851,
+    "macro_f1": 0.3708398678912829,
+    "confusion_matrix": [
+      [
+        178,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        25,
+        1,
+        2
+      ],
+      [
+        21,
+        0,
+        75,
+        0,
+        2
+      ],
+      [
+        5,
+        0,
+        10,
+        2,
+        1
+      ],
+      [
+        5,
+        0,
+        20,
+        0,
+        2
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 2,
+    "partition": "validation",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 359,
+    "train_n": 2507,
+    "accuracy": 0.6991643454038997,
+    "qwk": 0.6036602414986869,
+    "macro_f1": 0.3024237288135593,
+    "confusion_matrix": [
+      [
+        177,
+        1,
+        3,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        28,
+        0,
+        0
+      ],
+      [
+        24,
+        0,
+        74,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        12,
+        0,
+        0
+      ],
+      [
+        5,
+        1,
+        21,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 2,
+    "partition": "test",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2507,
+    "accuracy": 0.7099023709902371,
+    "qwk": 0.629166347406329,
+    "macro_f1": 0.354492855144626,
+    "confusion_matrix": [
+      [
+        354,
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        14,
+        0,
+        53,
+        2,
+        3
+      ],
+      [
+        41,
+        0,
+        149,
+        1,
+        2
+      ],
+      [
+        10,
+        0,
+        20,
+        3,
+        2
+      ],
+      [
+        11,
+        0,
+        41,
+        1,
+        3
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 2,
+    "partition": "test",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 717,
+    "train_n": 2507,
+    "accuracy": 0.691771269177127,
+    "qwk": 0.586165011952706,
+    "macro_f1": 0.29892956385163705,
+    "confusion_matrix": [
+      [
+        354,
+        0,
+        7,
+        0,
+        0
+      ],
+      [
+        14,
+        0,
+        58,
+        0,
+        0
+      ],
+      [
+        48,
+        3,
+        142,
+        0,
+        0
+      ],
+      [
+        12,
+        0,
+        23,
+        0,
+        0
+      ],
+      [
+        12,
+        2,
+        42,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 3,
+    "partition": "validation",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2509,
+    "accuracy": 0.7150837988826816,
+    "qwk": 0.6396073935292637,
+    "macro_f1": 0.3615586587952469,
+    "confusion_matrix": [
+      [
+        178,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        26,
+        0,
+        2
+      ],
+      [
+        21,
+        0,
+        75,
+        0,
+        1
+      ],
+      [
+        4,
+        0,
+        11,
+        2,
+        0
+      ],
+      [
+        5,
+        0,
+        20,
+        1,
+        1
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 3,
+    "partition": "validation",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 358,
+    "train_n": 2509,
+    "accuracy": 0.6927374301675978,
+    "qwk": 0.600308992858184,
+    "macro_f1": 0.2988535582954791,
+    "confusion_matrix": [
+      [
+        178,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        8,
+        0,
+        28,
+        0,
+        0
+      ],
+      [
+        24,
+        3,
+        70,
+        0,
+        0
+      ],
+      [
+        6,
+        1,
+        10,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        22,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 3,
+    "partition": "test",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 716,
+    "train_n": 2509,
+    "accuracy": 0.7192737430167597,
+    "qwk": 0.6393635551831722,
+    "macro_f1": 0.37601274727547834,
+    "confusion_matrix": [
+      [
+        354,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        15,
+        0,
+        53,
+        0,
+        4
+      ],
+      [
+        40,
+        0,
+        153,
+        0,
+        3
+      ],
+      [
+        9,
+        0,
+        21,
+        4,
+        1
+      ],
+      [
+        11,
+        0,
+        39,
+        0,
+        4
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 3,
+    "partition": "test",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 716,
+    "train_n": 2509,
+    "accuracy": 0.6955307262569832,
+    "qwk": 0.5952630384299757,
+    "macro_f1": 0.3101963260038433,
+    "confusion_matrix": [
+      [
+        353,
+        1,
+        5,
+        0,
+        0
+      ],
+      [
+        15,
+        2,
+        55,
+        0,
+        0
+      ],
+      [
+        47,
+        6,
+        143,
+        0,
+        0
+      ],
+      [
+        10,
+        0,
+        25,
+        0,
+        0
+      ],
+      [
+        13,
+        1,
+        40,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 4,
+    "partition": "validation",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 359,
+    "train_n": 2508,
+    "accuracy": 0.713091922005571,
+    "qwk": 0.6228182817738805,
+    "macro_f1": 0.370975046298948,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        27,
+        0,
+        2
+      ],
+      [
+        21,
+        0,
+        75,
+        0,
+        3
+      ],
+      [
+        5,
+        0,
+        11,
+        2,
+        0
+      ],
+      [
+        6,
+        0,
+        19,
+        0,
+        2
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 4,
+    "partition": "validation",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 359,
+    "train_n": 2508,
+    "accuracy": 0.6852367688022284,
+    "qwk": 0.5850787566110879,
+    "macro_f1": 0.2950135391135894,
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        29,
+        0,
+        0
+      ],
+      [
+        26,
+        4,
+        69,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        12,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        21,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 4,
+    "partition": "test",
+    "model": "size_majority",
+    "split_status": "ready_for_archive",
+    "n": 716,
+    "train_n": 2508,
+    "accuracy": 0.7206703910614525,
+    "qwk": 0.6386198880662789,
+    "macro_f1": 0.37399827002620545,
+    "confusion_matrix": [
+      [
+        356,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        13,
+        0,
+        52,
+        2,
+        4
+      ],
+      [
+        40,
+        0,
+        152,
+        1,
+        2
+      ],
+      [
+        9,
+        0,
+        21,
+        4,
+        0
+      ],
+      [
+        11,
+        0,
+        39,
+        1,
+        4
+      ]
+    ],
+    "fit_warnings": []
+  },
+  {
+    "scenario": "S0",
+    "fold": 4,
+    "partition": "test",
+    "model": "logistic_metadata",
+    "split_status": "ready_for_archive",
+    "n": 716,
+    "train_n": 2508,
+    "accuracy": 0.6955307262569832,
+    "qwk": 0.5937137640934547,
+    "macro_f1": 0.309273005773536,
+    "confusion_matrix": [
+      [
+        356,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        13,
+        2,
+        56,
+        0,
+        0
+      ],
+      [
+        48,
+        7,
+        140,
+        0,
+        0
+      ],
+      [
+        11,
+        1,
+        22,
+        0,
+        0
+      ],
+      [
+        12,
+        1,
+        42,
+        0,
+        0
+      ]
+    ],
+    "fit_warnings": []
+  }
+]

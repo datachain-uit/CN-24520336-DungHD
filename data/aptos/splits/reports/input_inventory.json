@@ -1,0 +1,23 @@
+{
+  "csv": "/kaggle/input/competitions/aptos2019-blindness-detection/train.csv",
+  "image_dir": "/kaggle/input/competitions/aptos2019-blindness-detection/train_images",
+  "n": 3662,
+  "grade_counts": {
+    "0": 1805,
+    "1": 370,
+    "2": 999,
+    "3": 193,
+    "4": 295
+  },
+  "expected_grade_counts": {
+    "0": 1805,
+    "1": 370,
+    "2": 999,
+    "3": 193,
+    "4": 295
+  },
+  "matches_expected": true,
+  "ignored_image_files_not_in_csv": 0,
+  "original_kaggle_test_imported": false,
+  "csv_sha256": "b2a3479695922e62c83c94a1a9ef669b4b6d68cc26a1d7090ebedecdd7dd79a5"
+}
