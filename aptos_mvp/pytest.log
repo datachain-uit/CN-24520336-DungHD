@@ -8,4 +8,4 @@ APTOS_MVP_S0v1/tests/test_cpu.py::test_losses PASSED                     [ 33%]
 APTOS_MVP_S0v1/tests/test_cpu.py::test_fixes PASSED                      [ 66%]
 APTOS_MVP_S0v1/tests/test_cpu.py::test_synthetic PASSED                  [100%]
 
-============================== 3 passed in 0.70s ===============================
+============================== 3 passed in 0.75s ===============================
