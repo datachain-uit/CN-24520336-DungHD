@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-8.4.2, pluggy-1.7.0 -- /usr/bin/python3
+rootdir: /kaggle/working
+plugins: anyio-4.15.1, langsmith-0.14.12, platformdirs-4.13.5, typeguard-4.6.0
+collecting ... collected 3 items
+
+APTOS_MVP_S0v1/tests/test_cpu.py::test_losses PASSED                     [ 33%]
+APTOS_MVP_S0v1/tests/test_cpu.py::test_fixes PASSED                      [ 66%]
+APTOS_MVP_S0v1/tests/test_cpu.py::test_synthetic PASSED                  [100%]
+
+============================== 3 passed in 0.70s ===============================
