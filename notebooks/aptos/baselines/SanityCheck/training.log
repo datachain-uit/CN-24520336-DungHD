@@ -1,0 +1,54 @@
+2026-11-14 08:31:45,466 | SANITY setup thất bại
+Traceback (most recent call last):
+  File "/tmp/ipykernel_49/3638296152.py", line 96, in sanity_check
+    s0 = load_s0(); weights = pretrained_state(); fold = s0['folds'][0]
+  File "/tmp/ipykernel_49/1500847357.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_49/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/xiayu05/splitaptos/splits/splits/splits.json
+2026-11-14 08:31:45,469 | SANITY_CHECK: FAIL | output=/kaggle/working/output/SANITY_CHECK
+2026-11-14 08:32:44,213 | SANITY setup thất bại
+Traceback (most recent call last):
+  File "/tmp/ipykernel_49/3638296152.py", line 96, in sanity_check
+    s0 = load_s0(); weights = pretrained_state(); fold = s0['folds'][0]
+  File "/tmp/ipykernel_49/1500847357.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_49/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/xiayu05/splitaptos/splits/splits/splits.json
+2026-11-14 08:32:44,215 | SANITY_CHECK: FAIL | output=/kaggle/working/output/SANITY_CHECK
+2026-11-14 08:57:39,328 | Cache RAM: đang đọc 32 ảnh mới (chưa augmentation)
+2026-11-14 08:57:47,289 | Cache RAM: 32 ảnh, 0.01 GiB
+2026-11-14 08:57:59,298 | SANITY overfit_A0 | step=10/200 loss=1.250872 accuracy=0.6250 QWK=0.33333333333333337
+2026-11-14 08:58:03,069 | SANITY overfit_A0 | step=20/200 loss=0.533201 accuracy=0.8750 QWK=0.7277486910994764
+2026-11-14 08:58:06,943 | SANITY overfit_A0 | step=30/200 loss=0.118546 accuracy=0.9688 QWK=0.9124087591240876
+2026-11-14 08:58:10,958 | SANITY overfit_A0 | step=40/200 loss=0.021178 accuracy=1.0000 QWK=1.0
+2026-11-14 08:58:13,604 | SANITY overfit_A0 | step=47/200 loss=0.009404 accuracy=1.0000 QWK=1.0
+2026-11-14 08:58:13,607 | SANITY overfit_A0: PASS | steps=47 epochs=0 sec=35.2
+2026-11-14 08:58:19,225 | SANITY overfit_A8 | step=10/200 loss=0.668553 accuracy=0.6562 QWK=0.39158576051779936
+2026-11-14 08:58:23,085 | SANITY overfit_A8 | step=20/200 loss=0.259201 accuracy=0.9375 QWK=0.87409200968523
+2026-11-14 08:58:26,926 | SANITY overfit_A8 | step=30/200 loss=0.059148 accuracy=0.9688 QWK=0.9124087591240876
+2026-11-14 08:58:30,745 | SANITY overfit_A8 | step=40/200 loss=0.012102 accuracy=1.0000 QWK=1.0
+2026-11-14 08:58:31,507 | SANITY overfit_A8 | step=42/200 loss=0.009267 accuracy=1.0000 QWK=1.0
+2026-11-14 08:58:31,511 | SANITY overfit_A8: PASS | steps=42 epochs=0 sec=17.5
+2026-11-14 08:58:32,308 | Cache RAM: đang đọc 2476 ảnh mới (chưa augmentation)
+2026-11-14 09:06:59,547 | Cache RAM: 2508 ảnh, 1.03 GiB
+2026-11-14 09:06:59,563 | Cache RAM: đang đọc 358 ảnh mới (chưa augmentation)
+2026-11-14 09:08:14,183 | Cache RAM: 2866 ảnh, 1.18 GiB
+2026-11-14 09:08:44,494 | SANITY shuffled_labels_A0 | epoch=1/10 loss=1.297832 accuracy=0.5028 QWK=0.0
+2026-11-14 09:09:14,145 | SANITY shuffled_labels_A0 | epoch=2/10 loss=1.298197 accuracy=0.5028 QWK=0.0
+2026-11-14 09:09:43,485 | SANITY shuffled_labels_A0 | epoch=3/10 loss=1.342800 accuracy=0.5028 QWK=0.0
+2026-11-14 09:10:13,094 | SANITY shuffled_labels_A0 | epoch=4/10 loss=1.271914 accuracy=0.5028 QWK=0.0559135431778055
+2026-11-14 09:10:42,559 | SANITY shuffled_labels_A0 | epoch=5/10 loss=1.318776 accuracy=0.4832 QWK=0.013283390171633047
+2026-11-14 09:11:12,223 | SANITY shuffled_labels_A0 | epoch=6/10 loss=1.274586 accuracy=0.5056 QWK=0.09596981029749063
+2026-11-14 09:11:41,714 | SANITY shuffled_labels_A0 | epoch=7/10 loss=1.342635 accuracy=0.4916 QWK=-0.007885121553035779
+2026-11-14 09:12:11,474 | SANITY shuffled_labels_A0 | epoch=8/10 loss=1.334892 accuracy=0.4916 QWK=0.1033370794765941
+2026-11-14 09:12:41,045 | SANITY shuffled_labels_A0 | epoch=9/10 loss=1.568754 accuracy=0.4246 QWK=0.006505618488694798
+2026-11-14 09:13:10,541 | SANITY shuffled_labels_A0 | epoch=10/10 loss=1.589086 accuracy=0.4497 QWK=0.04623859839248634
+2026-11-14 09:13:10,545 | SANITY shuffled_labels_A0: PASS | steps=790 epochs=10 sec=878.7
+2026-11-14 09:13:10,998 | SANITY_CHECK: PASS | output=/kaggle/working/output/SANITY_CHECK
