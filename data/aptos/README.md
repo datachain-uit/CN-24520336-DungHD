@@ -233,9 +233,11 @@ Bản DOCX tương ứng: [`NghiVan1.docx`](data_quality/evidence/NghiVan1.docx)
 
 ### 6.2. Trạng thái S0-v1.0 và các mục còn phải hoàn thiện
 
-- **Đã có:** nhật ký 1.200 cặp `near_duplicate_review_v1.csv`, các tài liệu NghiVan1/NghiVan2 và hai giá trị SHA-256 PDF nêu trên. Nhật ký hiện ghi `reviewer=Dũng` và `review_date=2026-11-04` cho các lượt kiểm tra; ngày xem thực tế cần tiếp tục đối chiếu lịch sử tài liệu.
+- **Nhật ký 1.200 cặp:** người nghiên cứu xác nhận trực tiếp kiểm tra đủ 1.200 cặp trong một ngày, không có người đánh giá thứ hai. CSV đang ghi `reviewer=Dũng`, `review_date=2026-11-04` cho cả 1.200 dòng; tuy nhiên tài liệu NghiVan1/NghiVan2 có mốc tạo ngày 03/11. Chưa có bằng chứng độc lập xác định toàn bộ lượt xem diễn ra ngày nào; giữ nguyên dữ liệu lịch sử và chờ đối chiếu lịch sử phiên bản/giải trình với giảng viên, không tự bịa thêm mốc thời gian.
 - **Phê duyệt phiên bản:** manifest trong repository hiện ghi `status=approved_frozen`, `official=true`, `advisor_approval_ref=Review-2026-11-07 – QĐ24`, `legacy_archived=true`. Đây là trạng thái của S0-v1.0 theo quyết định QĐ24; không có nghĩa mọi bước hoàn thiện hồ sơ đã hoàn tất.
-- **Vẫn còn mở:** đối chiếu và sửa ngày kiểm duyệt thực tế, xem lại cặp ảnh hạng 186, tổ chức kiểm tra chéo độc lập 65 cặp và tính tỷ lệ đồng thuận/Cohen's kappa; bổ sung đường dẫn cố định và đối chiếu hash của `near_duplicates_ranked.csv` trên Drive.
+- **Hạng 186 — đã được người nghiên cứu kiểm tra lại 18/11:** xác nhận nhãn **A** của cặp `5bda2ed09e62` / `ba4d2c4b3039` (Grade 4/4), giữ cùng phân hoạch. Đây là đánh giá lại của chính người xem ban đầu, không phải xác minh bởi người thứ hai; ghi chú và bằng chứng được sửa tại dòng rank=186 của `near_duplicate_review_v1.csv`. Không đổi nhãn A, không sửa split.
+- **Kiểm tra chéo 65 cặp — đang vướng nhân lực:** hiện chỉ có một người kiểm duyệt; chưa thể báo cáo inter-rater agreement/Cohen's kappa giữa hai người. Đề nghị giảng viên hỗ trợ người đánh giá độc lập hoặc đồng ý bằng văn bản phương án đánh giá lại mù bởi cùng người và báo cáo **intra-rater agreement** với giới hạn rõ ràng. Chưa đánh dấu Done.
+- **Vẫn cần đối chiếu:** mốc ngày kiểm duyệt 03–04/11 và đường dẫn Drive/hash của `near_duplicates_ranked.csv`.
 
 Các ngày và người xem trong CSV là khai báo của người nghiên cứu; bản thân metadata này không thay thế bằng chứng xem ảnh hoặc lịch sử phiên bản. Không khẳng định không tồn tại ảnh gần trùng chưa phát hiện, và không khẳng định độc lập người bệnh.
 

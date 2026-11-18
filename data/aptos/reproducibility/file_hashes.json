@@ -1,7 +1,7 @@
 {
   "sha256": {
-    "CHANGELOG.md": "2b9dba923bb9d6ad6f4535e4e2b2b8cd669a59119309f26dfa9db56d1c497345",
-    "README.md": "4713a854bc326e8f32b627a23b00aa14408528ccb9593407eceeb86b09dd01be",
+    "CHANGELOG.md": "03dfaacb36269961cbe214070fde3543a65eb5d6d859060617000121a99b9452",
+    "README.md": "09042c7c8e28763ee8476cbc8ec2966ec8644d07e272a61e2c69eeaf9a5e6f18",
     "data_quality/conflict_decisions.csv": "a0383d381856c3e00231a5275e3c1c68c057f32669848741e4d518a34a42ae7d",
     "data_quality/conflict_review_template.csv": "dd06970a41eb6326a295e93e83bf329129b46015b00c680af1fed71c22956949",
     "data_quality/exact_duplicates.csv": "0fa0ac081a6db77f38d880365fb7166fbb648264caa373a8ce5447e2c189b3be",
@@ -72,7 +72,8 @@
     "splits/stratification_mapping.csv": "cf7f45306c504d86950bb5ec7e84de3d7b7571351831e5b4c5884c2a4ccd72c8",
     "splits/validation_selection.csv": "443098062fe0a846c3d932a08ce79fb4d13a460f7ebd10e51b1484ab4710d998",
     "data_quality/evidence/NghiVan1.pdf": "e1b597ac6aab834009379779f7ba44cbac0f99f3ea4eef499cfc50184d32c62a",
-    "data_quality/evidence/NghiVan2.pdf": "9bb3e71aeceb06c50d2f79fcd5cc8e2553411aa63335f4918596d2a2b3a29eef"
+    "data_quality/evidence/NghiVan2.pdf": "9bb3e71aeceb06c50d2f79fcd5cc8e2553411aa63335f4918596d2a2b3a29eef",
+    "data_quality/near_duplicate_review_v1.csv": "b4c6e334df91c288b0c967789b07b3ce7316b4a41809ca0fa6b6e1ee51c3e576"
   },
   "excluded_from_hashes": [
     "cache/",
