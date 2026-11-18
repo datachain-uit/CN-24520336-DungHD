@@ -1,7 +1,7 @@
 """N32 / QĐ28: CPU unit tests for the exact APTOS training notebook.
 
 From the repository root:
-    python -m pytest tests/test_aptos_mvp.py -v --tb=short
+    python -m pytest test/test_aptos_mvp.py -v --tb=short
 To test a different notebook, set APTOS_NOTEBOOK to its path.
 No APTOS images, pretrained weights, or GPU are needed.
 """
@@ -19,7 +19,7 @@ import torch.nn.functional as F
 @pytest.fixture(scope="module")
 def app():
     repo = Path(__file__).resolve().parent.parent
-    path = Path(os.environ.get("APTOS_NOTEBOOK", repo / "notebooks/aptos/baselines/FullTrain/code-fixed.ipynb"))
+    path = Path(os.environ.get("APTOS_NOTEBOOK", repo / "notebooks/aptos/baselines/code-fixed.ipynb"))
     assert path.is_file(), f"Missing notebook: {path} (set APTOS_NOTEBOOK)"
     nb = json.loads(path.read_text(encoding="utf-8-sig"))
     scope = {"__name__": "aptos_test", "__cells__": nb["cells"]}
