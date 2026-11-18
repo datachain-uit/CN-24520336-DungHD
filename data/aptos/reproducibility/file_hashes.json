@@ -60,7 +60,7 @@
     "reproducibility/environment.json": "8342960b489440ba2e8ce4d756157da09672c2d734828d551d480812c4676900",
     "reproducibility/input_fingerprints.json": "fd743ea56a5cbe99d4fa618113690d34acee6e8d7751e9fd1a8d7d603181d495",
     "reproducibility/provenance.json": "8a7e0d3172844931071019a67e72c563766a3cac512bf7d8a927a84fe71e0e75",
-    "reproducibility/s0_version_manifest.json": "e46c08ebad6a29cf2de0b65b7f1d44df158b9fb042f29f9b44ecb7a5419da5b1",
+    "reproducibility/s0_version_manifest.json": "743fb2be0cde0f3c38401e8396f3d60eaf75fb0e18402f33c4a14c16e6e59208",
     "reproducibility/sensitivity_preregistration.json": "37a65ba2a6921d3936b8e59959ad1999adb1ee59a0766391149ffb36d011af1c",
     "splits/acquisition_groups.csv": "b4b44a4e79a59f1d7172ec17b70ce913ea5dc51ee285ccc7c76a38dd165f1a29",
     "splits/clusters.csv": "dee3f23ccdc73d4d344ed169a403ad64dbe0151bdfedf3548990e7d368968039",
