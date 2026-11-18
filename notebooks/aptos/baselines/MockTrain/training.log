@@ -1,16 +1,104 @@
-2026-11-14 09:15:00,822 | MOCK_TRAIN | seed=42 | GPUs=['Tesla T4', 'Tesla T4']
-2026-11-14 09:15:01,274 | Cache RAM: đang đọc 64 ảnh mới (chưa augmentation)
-2026-11-14 09:15:17,690 | Cache RAM: 64 ảnh, 0.03 GiB
-2026-11-14 09:15:17,693 | Cache RAM: đang đọc 32 ảnh mới (chưa augmentation)
-2026-11-14 09:15:24,658 | Cache RAM: 96 ảnh, 0.04 GiB
-2026-11-14 09:15:28,261 | MOCK A0: PASS
-2026-11-14 09:15:30,917 | MOCK A3: PASS
-2026-11-14 09:15:33,469 | MOCK A4: PASS
-2026-11-14 09:15:36,068 | MOCK A6: PASS
-2026-11-14 09:15:38,620 | MOCK A8: PASS
-2026-11-14 09:15:41,132 | MOCK A9: PASS
-2026-11-14 09:15:43,671 | MOCK A11: PASS
-2026-11-14 09:15:46,212 | MOCK A12: PASS
-2026-11-14 09:15:48,774 | MOCK SLACE: PASS
-2026-11-14 09:15:51,395 | MOCK CORN: PASS
-2026-11-14 09:15:51,586 | Trạng thái: completed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:03:23,370 | Dừng: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/data_quality/image_manifest.csv
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/2303782318.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/data_quality/image_manifest.csv
+2026-11-18 15:03:23,373 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:03:46,390 | Dừng: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/data_quality/image_manifest.csv
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/2303782318.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/data_quality/image_manifest.csv
+2026-11-18 15:03:46,393 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:07:13,615 | Dừng: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/aptos-split/splits/splits.json
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/2303782318.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/aptos-split/splits/splits.json
+2026-11-18 15:07:13,618 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:07:46,662 | Dừng: S0 metadata checksum sai: reproducibility/s0_version_manifest.json
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/2303782318.py", line 13, in load_s0
+    require(name in hashes and sha_file(root / name) == hashes[name], 'S0 metadata checksum sai: ' + name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: S0 metadata checksum sai: reproducibility/s0_version_manifest.json
+2026-11-18 15:07:46,665 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:15:58,444 | MOCK_TRAIN | seed=42 | GPUs=['Tesla T4', 'Tesla T4']
+2026-11-18 15:15:59,661 | Cache RAM: đang đọc 64 ảnh mới (chưa augmentation)
+2026-11-18 15:16:16,001 | Cache RAM: 64 ảnh, 0.03 GiB
+2026-11-18 15:16:16,004 | Cache RAM: đang đọc 32 ảnh mới (chưa augmentation)
+2026-11-18 15:16:23,413 | Cache RAM: 96 ảnh, 0.04 GiB
+2026-11-18 15:16:33,780 | MOCK A0: PASS
+2026-11-18 15:16:36,606 | MOCK A3: PASS
+2026-11-18 15:16:39,236 | MOCK A4: PASS
+2026-11-18 15:16:41,773 | MOCK A6: PASS
+2026-11-18 15:16:44,303 | MOCK A8: PASS
+2026-11-18 15:16:46,846 | MOCK A9: PASS
+2026-11-18 15:16:49,314 | MOCK A11: PASS
+2026-11-18 15:16:51,857 | MOCK A12: PASS
+2026-11-18 15:16:54,395 | MOCK SLACE: PASS
+2026-11-18 15:16:56,996 | MOCK CORN: PASS
+2026-11-18 15:16:57,080 | Trạng thái: completed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:32:25,730 | Dừng: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/splits/splits/splits.json
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/854130123.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/splits/splits/splits.json
+2026-11-18 15:32:25,736 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:32:40,824 | Dừng: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/splits/splits.json
+Traceback (most recent call last):
+  File "/tmp/ipykernel_50/4288910726.py", line 137, in main
+    s0 = load_s0()
+  File "/tmp/ipykernel_50/854130123.py", line 9, in load_s0
+    require((root / name).is_file(), 'Thiếu S0-v1.0: ' + str(root / name))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_50/4029773787.py", line 24, in require
+    if not condition: raise RuntimeError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Thiếu S0-v1.0: /kaggle/input/datasets/bondyyyyy/splitaptos/splits/splits.json
+2026-11-18 15:32:40,830 | Trạng thái: failed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-18 15:32:56,463 | MOCK_TRAIN | seed=42 | GPUs=['Tesla T4', 'Tesla T4']
+2026-11-18 15:32:56,905 | Cache RAM: đang đọc 64 ảnh mới (chưa augmentation)
+2026-11-18 15:33:11,962 | Cache RAM: 64 ảnh, 0.03 GiB
+2026-11-18 15:33:11,965 | Cache RAM: đang đọc 32 ảnh mới (chưa augmentation)
+2026-11-18 15:33:19,020 | Cache RAM: 96 ảnh, 0.04 GiB
+2026-11-18 15:33:22,300 | MOCK A0: PASS
+2026-11-18 15:33:24,872 | MOCK A3: PASS
+2026-11-18 15:33:27,430 | MOCK A4: PASS
+2026-11-18 15:33:30,067 | MOCK A6: PASS
+2026-11-18 15:33:32,672 | MOCK A8: PASS
+2026-11-18 15:33:35,286 | MOCK A9: PASS
+2026-11-18 15:33:37,930 | MOCK A11: PASS
+2026-11-18 15:33:40,550 | MOCK A12: PASS
+2026-11-18 15:33:43,112 | MOCK SLACE: PASS
+2026-11-18 15:33:45,724 | MOCK CORN: PASS
+2026-11-18 15:33:45,859 | Trạng thái: completed | output=/kaggle/working/output/MOCK_TRAIN
