@@ -1,0 +1,40 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-8.4.2, pluggy-1.7.0 -- /usr/bin/python3
+rootdir: /kaggle/working/CN-24520336-DungHD
+plugins: anyio-4.15.1, langsmith-0.14.12, platformdirs-4.13.5, typeguard-4.6.0
+collecting ... collected 2 items
+
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke CPU overflow smoke PASS: overflow=1/2, scale_after=5.5e+11, weights_changed=True
+PASSED
+test/test_amp_overflow.py::test_amp_overflow_cuda_t4x2 GPU N33 PASS: device0=Tesla T4, device1=Tesla T4, overflow=2/2, scale_after=2.75e+11, recovery_overflow=0/2, weights_updated=yes
+PASSED
+
+=============================== warnings summary ===============================
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+  /usr/local/lib/python3.13/dist-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+  /usr/local/lib/python3.13/dist-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+  /usr/local/lib/python3.13/dist-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+test/test_amp_overflow.py::test_amp_overflow_cpu_smoke
+  /usr/local/lib/python3.13/dist-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 2 passed, 14 warnings in 9.13s ========================
