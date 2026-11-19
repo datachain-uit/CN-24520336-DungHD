@@ -159,12 +159,18 @@ def test_batchnorm_freeze_preserves_affine_gradients(app):
         assert bn.weight.requires_grad and bn.weight.grad is not None
 
 
-def test_augmentation_determinism(app):
-    app["CACHE"] = {"fixture": np.arange(60*60*3, dtype=np.uint8).reshape(60, 60, 3)}
+def test_augmentation_determinism(app, tmp_path):
+    # Disk cache: train/validation nhận đường dẫn file .npy thay vì ndarray trong RAM.
+    image = np.arange(60*60*3, dtype=np.uint8).reshape(60, 60, 3)
+    file_path = tmp_path / "fixture.npy"
+    np.save(file_path, image, allow_pickle=False)
+    assert isinstance(np.load(file_path, mmap_mode="r", allow_pickle=False), np.memmap)
+    app["CACHE"] = {"fixture": str(file_path)}
     app["RUN_SEED"] = 42
     import pandas as pd
     s0 = {"images": pd.DataFrame({"grade": [2]}, index=["fixture"])}
     ds = app["FundusDataset"](["fixture"], s0, True)
+    assert ds.images == [str(file_path)]  # chỉ lưu đường dẫn, không giữ ndarray
     x1 = ds[(0, 7)][0]
     assert torch.equal(x1, ds[(0, 7)][0])
     assert not torch.equal(x1, ds[(0, 8)][0])
