@@ -1,16 +1,16 @@
-2026-11-18 17:17:34,230 | MOCK_TRAIN | seed=42 | GPUs=['Tesla T4', 'Tesla T4']
-2026-11-18 17:17:35,385 | Cache RAM: đang đọc 64 ảnh mới (chưa augmentation)
-2026-11-18 17:17:52,385 | Cache RAM: 64 ảnh, 0.03 GiB
-2026-11-18 17:17:52,388 | Cache RAM: đang đọc 32 ảnh mới (chưa augmentation)
-2026-11-18 17:18:00,341 | Cache RAM: 96 ảnh, 0.04 GiB
-2026-11-18 17:18:09,089 | MOCK A0: PASS
-2026-11-18 17:18:12,003 | MOCK A3: PASS
-2026-11-18 17:18:14,617 | MOCK A4: PASS
-2026-11-18 17:18:17,232 | MOCK A6: PASS
-2026-11-18 17:18:19,850 | MOCK A8: PASS
-2026-11-18 17:18:22,499 | MOCK A9: PASS
-2026-11-18 17:18:25,122 | MOCK A11: PASS
-2026-11-18 17:18:27,797 | MOCK A12: PASS
-2026-11-18 17:18:30,414 | MOCK SLACE: PASS
-2026-11-18 17:18:33,096 | MOCK CORN: PASS
-2026-11-18 17:18:33,186 | Trạng thái: completed | output=/kaggle/working/output/MOCK_TRAIN
+2026-11-19 17:16:59,432 | MOCK_TRAIN | seed=42 | GPUs=['Tesla T4', 'Tesla T4']
+2026-11-19 17:17:00,880 | Disk cache: tạo 64 ảnh uint8 vào /kaggle/working/aptos_image_cache/e5e8e88681e9d3d6ec70 (không cache RAM). process_rss=0.86GiB | worker_rss_sum=0.00GiB | system_available=29.33GiB | cgroup_ram=2.07/30.00GiB
+2026-11-19 17:17:21,846 | Disk cache: vừa thêm 64 ảnh (0.03 GiB); phiên này đã lập chỉ mục 64 ảnh. process_rss=0.90GiB | worker_rss_sum=0.00GiB | system_available=29.11GiB | cgroup_ram=2.28/30.00GiB
+2026-11-19 17:17:21,852 | Disk cache: tạo 32 ảnh uint8 vào /kaggle/working/aptos_image_cache/e5e8e88681e9d3d6ec70 (không cache RAM). process_rss=0.90GiB | worker_rss_sum=0.00GiB | system_available=29.11GiB | cgroup_ram=2.28/30.00GiB
+2026-11-19 17:17:31,549 | Disk cache: vừa thêm 32 ảnh (0.01 GiB); phiên này đã lập chỉ mục 96 ảnh. process_rss=0.90GiB | worker_rss_sum=0.00GiB | system_available=29.17GiB | cgroup_ram=2.38/30.00GiB
+2026-11-19 17:17:43,360 | MOCK A0: PASS
+2026-11-19 17:17:47,113 | MOCK A3: PASS
+2026-11-19 17:17:50,579 | MOCK A4: PASS
+2026-11-19 17:17:54,024 | MOCK A6: PASS
+2026-11-19 17:17:57,421 | MOCK A8: PASS
+2026-11-19 17:18:00,752 | MOCK A9: PASS
+2026-11-19 17:18:04,185 | MOCK A11: PASS
+2026-11-19 17:18:07,516 | MOCK A12: PASS
+2026-11-19 17:18:10,850 | MOCK SLACE: PASS
+2026-11-19 17:18:14,283 | MOCK CORN: PASS
+2026-11-19 17:18:14,291 | Trạng thái: completed | output=/kaggle/working/output/MOCK_TRAIN
